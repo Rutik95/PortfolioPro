@@ -92,6 +92,164 @@
     min-height: 100vh;
   }
 
+  .light body {
+    color: rgb(17 24 39);
+    background: linear-gradient(135deg, rgb(240 249 255) 0%, rgb(254 252 232) 100%);
+  }
+
+  .dark body {
+    color: rgb(255 255 255);
+    background: linear-gradient(135deg, rgb(15 23 42) 0%, rgb(17 24 39) 100%);
+  }
+
+  .light #app {
+    color: rgb(17 24 39);
+    background: transparent;
+  }
+
+  .dark #app {
+    color: rgb(255 255 255);
+    background: transparent;
+  }
+
+  .dark .text-gray-900 {
+    color: rgb(255 255 255);
+  }
+
+  .dark .text-gray-800 {
+    color: rgb(255 255 255);
+  }
+
+  .dark .text-gray-700 {
+    color: rgb(255 255 255);
+  }
+
+  .dark .text-gray-600 {
+    color: rgb(243 244 246);
+  }
+
+  .dark .text-gray-500 {
+    color: rgb(243 244 246);
+  }
+
+  .dark .text-gray-400 {
+    color: rgb(229 231 235);
+  }
+
+  .dark .text-gray-300 {
+    color: rgb(243 244 246);
+  }
+
+  .hero-subtitle {
+    color: rgb(55 65 81);
+  }
+
+  .hero-description {
+    color: rgb(75 85 99);
+  }
+
+  .skills-description {
+    color: rgb(75 85 99);
+  }
+
+  .page-section-bg {
+    background-color: rgb(255 255 255);
+  }
+
+  .page-description {
+    color: rgb(75 85 99);
+  }
+
+  .page-body {
+    color: rgb(55 65 81);
+  }
+
+  .page-label {
+    color: rgb(75 85 99);
+  }
+
+  .page-heading-secondary {
+    color: rgb(17 24 39);
+  }
+
+  .page-body-secondary {
+    color: rgb(55 65 81);
+  }
+
+  .experience-card-bg {
+    background-color: rgb(249 250 251);
+  }
+
+  .tech-tag-bg {
+    background-color: rgb(255 255 255);
+  }
+
+  .social-link-bg {
+    background-color: rgb(243 244 246);
+  }
+
+  .social-link-text {
+    color: rgb(75 85 99);
+  }
+
+  .filter-btn-bg {
+    background-color: rgb(243 244 246);
+  }
+
+  .filter-btn-text {
+    color: rgb(55 65 81);
+  }
+
+  .projects-section-bg {
+    background-color: rgb(249 250 251);
+  }
+
+  .dark .hero-subtitle,
+  .dark .hero-description,
+  .dark .skills-description,
+  .dark .page-description,
+  .dark .page-body,
+  .dark .page-label,
+  .dark .page-body-secondary {
+    color: rgb(255 255 255);
+  }
+
+  .dark .page-section-bg {
+    background-color: rgb(17 24 39);
+  }
+
+  .dark .page-heading-secondary {
+    color: rgb(255 255 255);
+  }
+
+  .dark .experience-card-bg {
+    background-color: rgb(30 41 59);
+  }
+
+  .dark .tech-tag-bg {
+    background-color: rgb(30 41 59);
+  }
+
+  .dark .social-link-bg {
+    background-color: rgb(55 65 81);
+  }
+
+  .dark .social-link-text {
+    color: rgb(209 213 219);
+  }
+
+  .dark .filter-btn-bg {
+    background-color: rgb(55 65 81);
+  }
+
+  .dark .filter-btn-text {
+    color: rgb(209 213 219);
+  }
+
+  .dark .projects-section-bg {
+    background-color: rgb(30 41 59);
+  }
+
   * {
     animation-fill-mode: both;
   }
@@ -105,31 +263,12 @@
     padding: 0.875rem 2rem;
     border-radius: 0.75rem;
     border: none;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
     box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.25);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-  }
-
-  .btn-primary:hover::before {
-    left: 100%;
   }
 
   .btn-primary:hover {
     background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(14, 165, 233, 0.35);
   }
 
   .btn-primary:focus {

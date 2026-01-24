@@ -18,10 +18,10 @@
             <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">
               Hi, I'm Rutik
             </h1>
-            <p class="text-xl md:text-2xl text-gray-700 mb-8 font-medium">
+            <p class="text-xl md:text-2xl hero-subtitle mb-8 font-medium">
               Building exceptional digital experiences in travel & aviation
             </p>
-            <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-lg hero-description mb-12 max-w-3xl mx-auto leading-relaxed">
               Frontend Engineer with 3+ years of experience owning critical modules for enterprise travel platforms.
               Expert in Vue.js, API-driven UI development, and modernizing legacy systems. Passionate about scalable solutions and leveraging AI tools for development excellence.
             </p>
@@ -64,7 +64,7 @@
       <div class="container-max">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Core Expertise</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p class="text-lg skills-description max-w-2xl mx-auto">
             Technologies and tools I use to build scalable, user-focused digital systems
           </p>
         </div>
@@ -91,11 +91,11 @@
     </section>
 
     <!-- Featured Projects -->
-    <section class="section-padding bg-gray-50">
+    <section class="section-padding projects-section-bg">
       <div class="container-max">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Featured Projects</h2>
+          <p class="text-lg skills-description max-w-2xl mx-auto">
             Some of my recent work showcasing Vue.js development and modern web technologies
           </p>
         </div>

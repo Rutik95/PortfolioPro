@@ -1,12 +1,12 @@
 <template>
   <div class="pt-20">
     <!-- About Section -->
-    <section class="section-padding bg-white">
+    <section class="section-padding page-section-bg">
       <div class="container-max">
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-16">
             <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">About Me</h1>
-            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p class="text-xl page-description leading-relaxed max-w-3xl mx-auto">
               Frontend Engineer with 3+ years of experience building and maintaining production-grade web applications in travel and aviation domains
             </p>
           </div>
@@ -14,7 +14,7 @@
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 class="text-2xl font-bold gradient-text mb-6">My Journey</h2>
-              <div class="space-y-4 text-gray-700 leading-relaxed">
+              <div class="space-y-4 page-body leading-relaxed">
                 <p>
                   I've spent the last 3+ years building and maintaining production-grade web applications in the travel and aviation industry.
                   Currently, I own the Flights module for Thomas Cook's enterprise travel platform, working across multiple teams and mentoring junior developers.
@@ -35,27 +35,27 @@
               <h3 class="text-xl font-bold gradient-text mb-6">Quick Facts</h3>
               <div class="space-y-4">
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">📅 Experience</span>
+                  <span class="page-label">📅 Experience</span>
                   <span class="font-semibold text-primary-600">3+ Years</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">🏢 Current Role</span>
+                  <span class="page-label">🏢 Current Role</span>
                   <span class="font-semibold text-accent-600">Frontend Engineer</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">🎯 Industry</span>
+                  <span class="page-label">🎯 Industry</span>
                   <span class="font-semibold text-primary-600">Travel & Aviation</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">🤖 AI Tools</span>
+                  <span class="page-label">🤖 AI Tools</span>
                   <span class="font-semibold text-accent-600">Copilot, Claude, GPT</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">📍 Location</span>
+                  <span class="page-label">📍 Location</span>
                   <span class="font-semibold text-primary-600">Panvel, India</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="text-gray-600">🎓 Education</span>
+                  <span class="page-label">🎓 Education</span>
                   <span class="font-semibold text-accent-600">B.E. IT (8.68 CGPA)</span>
                 </div>
               </div>
@@ -66,11 +66,11 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section-padding bg-gray-50">
+    <section class="section-padding experience-card-bg">
       <div class="container-max">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Technical Skills</h2>
+          <p class="text-lg page-description max-w-2xl mx-auto">
             Technologies and tools I use to build modern, scalable applications
           </p>
         </div>
@@ -79,9 +79,9 @@
           <div
             v-for="category in skillCategories"
             :key="category.title"
-            class="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-200"
+            class="tech-tag-bg rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-200"
           >
-            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+            <h3 class="text-xl font-bold page-heading-secondary mb-4 flex items-center">
               <span class="text-2xl mr-3">{{ category.icon }}</span>
               {{ category.title }}
             </h3>
@@ -100,11 +100,11 @@
     </section>
 
     <!-- Experience Timeline -->
-    <section class="section-padding bg-white">
+    <section class="section-padding page-section-bg">
       <div class="container-max">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Experience</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Professional Experience</h2>
+          <p class="text-lg page-description max-w-2xl mx-auto">
             My journey in software development and the roles I've taken
           </p>
         </div>
@@ -125,18 +125,18 @@
               </div>
 
               <!-- Content -->
-              <div class="flex-grow bg-gray-50 rounded-lg p-6">
+              <div class="flex-grow experience-card-bg rounded-lg p-6">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                  <h3 class="text-xl font-bold text-gray-900">{{ experience.position }}</h3>
+                  <h3 class="text-xl font-bold page-heading-secondary">{{ experience.position }}</h3>
                   <span class="text-primary-600 font-medium">{{ experience.period }}</span>
                 </div>
-                <p class="text-gray-700 font-medium mb-3">{{ experience.company }}</p>
-                <p class="text-gray-600 leading-relaxed">{{ experience.description }}</p>
+                <p class="page-body-secondary font-medium mb-3">{{ experience.company }}</p>
+                <p class="page-description leading-relaxed">{{ experience.description }}</p>
                 <div class="flex flex-wrap gap-2 mt-4">
                   <span
                     v-for="tech in experience.technologies"
                     :key="tech"
-                    class="px-3 py-1 bg-white text-gray-700 text-sm rounded-full border border-gray-300"
+                    class="px-3 py-1 tech-tag-bg page-body-secondary text-sm rounded-full border border-gray-300"
                   >
                     {{ tech }}
                   </span>

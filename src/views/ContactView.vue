@@ -1,25 +1,25 @@
 <template>
   <div class="pt-20">
     <!-- Contact Section -->
-    <section class="section-padding bg-white">
+    <section class="section-padding page-section-bg">
       <div class="container-max">
         <div class="max-w-4xl mx-auto">
           <!-- Header -->
           <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
-            <p class="text-xl text-gray-600 leading-relaxed">
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">Get In Touch</h1>
+            <p class="text-xl page-description leading-relaxed">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-12">
             <!-- Contact Form -->
-            <div class="bg-gray-50 rounded-lg p-8">
-              <h2 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
+            <div class="experience-card-bg rounded-lg p-8">
+              <h2 class="text-2xl font-bold page-heading-secondary mb-6">Send a Message</h2>
 
               <form @submit.prevent="handleSubmit" class="space-y-6">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="name" class="block text-sm font-medium page-body-secondary mb-2">
                     Full Name
                   </label>
                   <input
@@ -33,7 +33,7 @@
                 </div>
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="email" class="block text-sm font-medium page-body-secondary mb-2">
                     Email Address
                   </label>
                   <input
@@ -47,7 +47,7 @@
                 </div>
 
                 <div>
-                  <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="subject" class="block text-sm font-medium page-body-secondary mb-2">
                     Subject
                   </label>
                   <input
@@ -61,7 +61,7 @@
                 </div>
 
                 <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                  <label for="message" class="block text-sm font-medium page-body-secondary mb-2">
                     Message
                   </label>
                   <textarea
@@ -88,8 +88,8 @@
             <!-- Contact Info -->
             <div class="space-y-8">
               <div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">
+                <h2 class="text-2xl font-bold page-heading-secondary mb-6">Let's Connect</h2>
+                <p class="page-description mb-8 leading-relaxed">
                   I'm currently available for freelance work and full-time opportunities.
                   Whether you have a project in mind or just want to chat about technology,
                   I'd love to hear from you.
@@ -107,7 +107,7 @@
                     <component :is="contact.icon" class="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900">{{ contact.type }}</h3>
+                    <h3 class="font-semibold page-heading-secondary">{{ contact.type }}</h3>
                     <a
                       v-if="contact.href"
                       :href="contact.href"
@@ -117,14 +117,14 @@
                     >
                       {{ contact.value }}
                     </a>
-                    <p v-else class="text-gray-600">{{ contact.value }}</p>
+                    <p v-else class="page-description">{{ contact.value }}</p>
                   </div>
                 </div>
               </div>
 
               <!-- Social Links -->
               <div>
-                <h3 class="font-semibold text-gray-900 mb-4">Follow Me</h3>
+                <h3 class="font-semibold page-heading-secondary mb-4">Follow Me</h3>
                 <div class="flex space-x-4">
                   <a
                     v-for="social in socialLinks"
@@ -132,7 +132,7 @@
                     :href="social.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="w-10 h-10 bg-gray-100 hover:bg-primary-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-primary-600 transition-colors"
+                    class="w-10 h-10 social-link-bg rounded-lg flex items-center justify-center social-link-text hover:text-primary-600 transition-colors"
                     :title="social.name"
                   >
                     <component :is="social.icon" class="w-5 h-5" />

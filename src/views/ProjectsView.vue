@@ -1,11 +1,11 @@
 <template>
   <div class="pt-20">
-    <section class="section-padding bg-white">
+    <section class="section-padding page-section-bg">
       <div class="container-max">
         <!-- Header -->
         <div class="text-center mb-16">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">My Projects</h1>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">My Projects</h1>
+          <p class="text-xl page-description max-w-2xl mx-auto">
             A showcase of my work, featuring Vue.js applications and modern web technologies
           </p>
         </div>
@@ -20,7 +20,7 @@
               'px-6 py-2 rounded-full font-medium transition-colors duration-200',
               activeFilter === filter.id
                 ? 'bg-primary-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'filter-btn-bg filter-btn-text hover:bg-gray-200'
             ]"
           >
             {{ filter.name }}
@@ -32,7 +32,7 @@
           <div
             v-for="project in filteredProjects"
             :key="project.id"
-            class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl hover:border-primary-300 transition-all duration-200 group"
+            class="tech-tag-bg border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl hover:border-primary-300 transition-all duration-200 group"
           >
             <!-- Project Image/Placeholder -->
             <div class="h-48 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center group-hover:from-primary-200 group-hover:to-primary-300 transition-colors duration-200">
@@ -42,7 +42,7 @@
             <!-- Project Content -->
             <div class="p-6">
               <div class="flex items-start justify-between mb-3">
-                <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                <h3 class="text-xl font-bold page-heading-secondary group-hover:text-primary-600 transition-colors">
                   {{ project.title }}
                 </h3>
                 <div class="flex space-x-2 ml-4">
@@ -73,7 +73,7 @@
                 </div>
               </div>
 
-              <p class="text-gray-600 mb-4 leading-relaxed">{{ project.description }}</p>
+              <p class="page-description mb-4 leading-relaxed">{{ project.description }}</p>
 
               <!-- Technologies -->
               <div class="flex flex-wrap gap-2 mb-4">
@@ -88,8 +88,8 @@
 
               <!-- Features -->
               <div v-if="project.features" class="mb-4">
-                <h4 class="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-                <ul class="text-sm text-gray-600 space-y-1">
+                <h4 class="text-sm font-semibold page-body-secondary mb-2">Key Features:</h4>
+                <ul class="text-sm page-description space-y-1">
                   <li v-for="feature in project.features" :key="feature" class="flex items-center">
                     <span class="w-1.5 h-1.5 bg-primary-600 rounded-full mr-2 flex-shrink-0"></span>
                     {{ feature }}
@@ -103,8 +103,8 @@
         <!-- No Projects Message -->
         <div v-if="filteredProjects.length === 0" class="text-center py-16">
           <div class="text-6xl mb-4">📝</div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">No projects found</h3>
-          <p class="text-gray-600">Try adjusting your filter criteria.</p>
+          <h3 class="text-xl font-semibold page-heading-secondary mb-2">No projects found</h3>
+          <p class="page-description">Try adjusting your filter criteria.</p>
         </div>
       </div>
     </section>
