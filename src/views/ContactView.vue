@@ -267,7 +267,7 @@ const handleSubmit = async () => {
 }
 </script>
 
-<script>
+<script lang="ts">
 const EmailIcon = {
   template: `
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
