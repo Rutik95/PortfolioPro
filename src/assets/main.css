@@ -42,6 +42,10 @@
   --animate-slide-in-right: slide-in-right 0.8s ease-out;
   --animate-bounce-gentle: bounce-gentle 3s infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
+  --animate-float-fast: float-fast 4s ease-in-out infinite;
+  --animate-float-diagonal: float-diagonal 10s ease-in-out infinite;
+  --animate-bounce-gentle: bounce-gentle 3s infinite;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
 }
 
@@ -73,6 +77,24 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes float-diagonal {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(5px, -25px); }
+  75% { transform: translate(-5px, -15px); }
+  100% { transform: translate(0px, 0px); }
 }
 
 @keyframes pulse-glow {
@@ -343,6 +365,18 @@
 
   .floating-element {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .floating-element-fast {
+    animation: float-fast 4s ease-in-out infinite;
+  }
+
+  .floating-element-diagonal {
+    animation: float-diagonal 10s ease-in-out infinite;
   }
 
   .glow-effect {
