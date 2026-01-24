@@ -1,13 +1,13 @@
 <template>
   <div class="pt-20">
     <!-- Contact Section -->
-    <section class="section-padding bg-white/30 dark:bg-gray-800/30">
+    <section class="section-padding bg-white">
       <div class="container-max">
         <div class="max-w-4xl mx-auto">
           <!-- Header -->
           <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Get In Touch</h1>
-            <p class="text-xl text-gray-800 dark:text-gray-400 leading-relaxed">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
+            <p class="text-xl text-gray-600 leading-relaxed">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </div>
@@ -15,11 +15,11 @@
           <div class="grid md:grid-cols-2 gap-12">
             <!-- Contact Form -->
             <div class="bg-gray-50 rounded-lg p-8">
-              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h2>
 
               <form @submit.prevent="handleSubmit" class="space-y-6">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                     Full Name
                   </label>
                   <input
@@ -33,7 +33,7 @@
                 </div>
 
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                     Email Address
                   </label>
                   <input
@@ -47,7 +47,7 @@
                 </div>
 
                 <div>
-                  <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
                     Subject
                   </label>
                   <input
@@ -61,7 +61,7 @@
                 </div>
 
                 <div>
-                  <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
                     Message
                   </label>
                   <textarea
@@ -88,8 +88,8 @@
             <!-- Contact Info -->
             <div class="space-y-8">
               <div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Let's Connect</h2>
-                <p class="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Let's Connect</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
                   I'm currently available for freelance work and full-time opportunities.
                   Whether you have a project in mind or just want to chat about technology,
                   I'd love to hear from you.
@@ -107,7 +107,7 @@
                     <component :is="contact.icon" class="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-white">{{ contact.type }}</h3>
+                    <h3 class="font-semibold text-gray-900">{{ contact.type }}</h3>
                     <a
                       v-if="contact.href"
                       :href="contact.href"
@@ -117,14 +117,14 @@
                     >
                       {{ contact.value }}
                     </a>
-                    <p v-else class="text-gray-700 dark:text-gray-300">{{ contact.value }}</p>
+                    <p v-else class="text-gray-600">{{ contact.value }}</p>
                   </div>
                 </div>
               </div>
 
               <!-- Social Links -->
               <div>
-                <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Follow Me</h3>
+                <h3 class="font-semibold text-gray-900 mb-4">Follow Me</h3>
                 <div class="flex space-x-4">
                   <a
                     v-for="social in socialLinks"
@@ -267,7 +267,7 @@ const handleSubmit = async () => {
 }
 </script>
 
-<script lang="ts">
+<script>
 const EmailIcon = {
   template: `
     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">

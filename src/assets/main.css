@@ -23,51 +23,6 @@
   --color-accent-800: #854d0e;
   --color-accent-900: #713f12;
 
-  /* Dark mode colors */
-  --color-primary-50-dark: #0f172a;
-  --color-primary-100-dark: #1e293b;
-  --color-primary-200-dark: #334155;
-  --color-primary-300-dark: #475569;
-  --color-primary-400-dark: #64748b;
-  --color-primary-500-dark: #06b6d4;
-  --color-primary-600-dark: #0891b2;
-  --color-primary-700-dark: #0e7490;
-  --color-primary-800-dark: #155e75;
-  --color-primary-900-dark: #164e63;
-
-  --color-accent-50-dark: #1c1917;
-  --color-accent-100-dark: #292524;
-  --color-accent-200-dark: #3f3f46;
-  --color-accent-300-dark: #52525b;
-  --color-accent-400-dark: #71717a;
-  --color-accent-500-dark: #eab308;
-  --color-accent-600-dark: #ca8a04;
-  --color-accent-700-dark: #a16207;
-  --color-accent-800-dark: #854d0e;
-  --color-accent-900-dark: #713f12;
-
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-
-  --color-gray-50-dark: #111827;
-  --color-gray-100-dark: #1f2937;
-  --color-gray-200-dark: #374151;
-  --color-gray-300-dark: #4b5563;
-  --color-gray-400-dark: #6b7280;
-  --color-gray-500-dark: #9ca3af;
-  --color-gray-600-dark: #d1d5db;
-  --color-gray-700-dark: #e5e7eb;
-  --color-gray-800-dark: #f3f4f6;
-  --color-gray-900-dark: #f9fafb;
-
   --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-fade-in: fade-in 0.6s ease-out;
@@ -77,7 +32,6 @@
   --animate-bounce-gentle: bounce-gentle 3s infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-theme-transition: theme-transition 0.3s ease-in-out;
 }
 
 @keyframes fade-in {
@@ -115,11 +69,6 @@
   50% { box-shadow: 0 0 40px rgba(14, 165, 233, 0.6); }
 }
 
-@keyframes theme-transition {
-  0% { opacity: 0.8; }
-  100% { opacity: 1; }
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -130,12 +79,6 @@
     color: rgb(17 24 39);
     background: linear-gradient(135deg, rgb(240 249 255) 0%, rgb(254 252 232) 100%);
     min-height: 100vh;
-    transition: background 0.5s ease, color 0.5s ease;
-  }
-
-  .dark body {
-    color: rgb(249 250 251);
-    background: linear-gradient(135deg, rgb(15 23 42) 0%, rgb(28 25 23) 100%);
   }
 
   * {
@@ -236,30 +179,13 @@
     transition: all 0.3s ease;
   }
 
-  .dark .card {
-    background: rgba(30, 41, 59, 0.9);
-    border: 1px solid rgba(71, 85, 105, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  }
-
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 45px 0 rgba(31, 38, 135, 0.2);
   }
 
-  .dark .card:hover {
-    box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.4);
-  }
-
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .dark .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
