@@ -2,8 +2,8 @@
   <canvas
     v-if="particlesEnabled"
     ref="canvas"
-    class="fixed inset-0 pointer-events-none z-10"
-    :style="{ background: 'transparent' }"
+    class="fixed inset-0 pointer-events-none"
+    :style="{ background: 'transparent', zIndex: '-1' }"
   ></canvas>
 </template>
 
