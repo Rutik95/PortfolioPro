@@ -3,60 +3,60 @@
     <!-- Hero Section -->
     <section class="relative pt-20 pb-20 overflow-hidden">
       <!-- Background Elements -->
-      <div class="absolute inset-0">
+      <div v-if="animationsEnabled" class="absolute inset-0">
         <!-- Large floating elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-60 floating-element"></div>
-        <div class="absolute top-16 right-16 w-24 h-24 bg-accent-200 rounded-full opacity-50 floating-element-slow" style="animation-delay: -1s;"></div>
-        <div class="absolute bottom-32 left-1/4 w-18 h-18 bg-primary-300 rounded-full opacity-55 floating-element-fast" style="animation-delay: -3s;"></div>
-        <div class="absolute top-1/3 right-1/3 w-16 h-16 bg-accent-300 rounded-full opacity-65 floating-element" style="animation-delay: -5s;"></div>
+        <div class="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-60" :class="animationsEnabled ? 'floating-element' : ''"></div>
+        <div class="absolute top-16 right-16 w-24 h-24 bg-accent-200 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -1s;"></div>
+        <div class="absolute bottom-32 left-1/4 w-18 h-18 bg-primary-300 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/3 right-1/3 w-16 h-16 bg-accent-300 rounded-full opacity-65" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -5s;"></div>
 
         <!-- Medium floating elements -->
-        <div class="absolute top-40 right-20 w-16 h-16 bg-accent-200 rounded-full opacity-70 floating-element" style="animation-delay: -2s;"></div>
-        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-primary-300 rounded-full opacity-50 floating-element-fast" style="animation-delay: -4s;"></div>
-        <div class="absolute top-2/3 left-16 w-14 h-14 bg-primary-400 rounded-full opacity-45 floating-element-slow" style="animation-delay: -6s;"></div>
-        <div class="absolute bottom-40 right-32 w-10 h-10 bg-accent-400 rounded-full opacity-60 floating-element" style="animation-delay: -7s;"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-accent-200 rounded-full opacity-70" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -2s;"></div>
+        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-primary-300 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -4s;"></div>
+        <div class="absolute top-2/3 left-16 w-14 h-14 bg-primary-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -6s;"></div>
+        <div class="absolute bottom-40 right-32 w-10 h-10 bg-accent-400 rounded-full opacity-60" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -7s;"></div>
 
         <!-- Small floating elements -->
-        <div class="absolute top-1/2 left-1/2 w-8 h-8 bg-primary-500 rounded-full opacity-40 floating-element-fast" style="animation-delay: -8s;"></div>
-        <div class="absolute bottom-16 right-1/4 w-6 h-6 bg-accent-500 rounded-full opacity-50 floating-element-slow" style="animation-delay: -9s;"></div>
-        <div class="absolute top-24 left-3/4 w-7 h-7 bg-primary-600 rounded-full opacity-35 floating-element" style="animation-delay: -10s;"></div>
-        <div class="absolute bottom-1/3 right-12 w-9 h-9 bg-accent-600 rounded-full opacity-45 floating-element-fast" style="animation-delay: -11s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-8 h-8 bg-primary-500 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -8s;"></div>
+        <div class="absolute bottom-16 right-1/4 w-6 h-6 bg-accent-500 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -9s;"></div>
+        <div class="absolute top-24 left-3/4 w-7 h-7 bg-primary-600 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -10s;"></div>
+        <div class="absolute bottom-1/3 right-12 w-9 h-9 bg-accent-600 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -11s;"></div>
 
         <!-- Extra decorative elements -->
-        <div class="absolute top-8 left-1/3 w-4 h-4 bg-primary-700 rounded-full opacity-30 floating-element-slow" style="animation-delay: -12s;"></div>
-        <div class="absolute bottom-8 right-1/2 w-5 h-5 bg-accent-700 rounded-full opacity-35 floating-element-fast" style="animation-delay: -13s;"></div>
+        <div class="absolute top-8 left-1/3 w-4 h-4 bg-primary-700 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -12s;"></div>
+        <div class="absolute bottom-8 right-1/2 w-5 h-5 bg-accent-700 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -13s;"></div>
 
         <!-- Even more floating elements -->
-        <div class="absolute top-1/4 left-2/3 w-11 h-11 bg-primary-500 rounded-full opacity-40 floating-element-diagonal" style="animation-delay: -14s;"></div>
-        <div class="absolute bottom-1/4 right-8 w-13 h-13 bg-accent-400 rounded-full opacity-45 floating-element-fast" style="animation-delay: -15s;"></div>
-        <div class="absolute top-3/4 left-1/5 w-9 h-9 bg-primary-600 rounded-full opacity-50 floating-element-slow" style="animation-delay: -16s;"></div>
-        <div class="absolute top-1/6 right-3/4 w-7 h-7 bg-accent-500 rounded-full opacity-55 floating-element-diagonal" style="animation-delay: -17s;"></div>
-        <div class="absolute bottom-3/4 left-2/5 w-6 h-6 bg-primary-700 rounded-full opacity-35 floating-element-fast" style="animation-delay: -18s;"></div>
-        <div class="absolute top-5/6 right-1/5 w-8 h-8 bg-accent-600 rounded-full opacity-40 floating-element-slow" style="animation-delay: -19s;"></div>
-        <div class="absolute top-2/5 left-1/6 w-10 h-10 bg-primary-400 rounded-full opacity-45 floating-element" style="animation-delay: -20s;"></div>
-        <div class="absolute bottom-2/5 right-2/5 w-5 h-5 bg-accent-700 rounded-full opacity-50 floating-element-diagonal" style="animation-delay: -21s;"></div>
+        <div class="absolute top-1/4 left-2/3 w-11 h-11 bg-primary-500 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -14s;"></div>
+        <div class="absolute bottom-1/4 right-8 w-13 h-13 bg-accent-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -15s;"></div>
+        <div class="absolute top-3/4 left-1/5 w-9 h-9 bg-primary-600 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -16s;"></div>
+        <div class="absolute top-1/6 right-3/4 w-7 h-7 bg-accent-500 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -17s;"></div>
+        <div class="absolute bottom-3/4 left-2/5 w-6 h-6 bg-primary-700 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -18s;"></div>
+        <div class="absolute top-5/6 right-1/5 w-8 h-8 bg-accent-600 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -19s;"></div>
+        <div class="absolute top-2/5 left-1/6 w-10 h-10 bg-primary-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -20s;"></div>
+        <div class="absolute bottom-2/5 right-2/5 w-5 h-5 bg-accent-700 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -21s;"></div>
 
         <!-- Tiny sparkle elements -->
-        <div class="absolute top-12 right-1/3 w-3 h-3 bg-primary-800 rounded-full opacity-25 floating-element-fast" style="animation-delay: -22s;"></div>
-        <div class="absolute bottom-12 left-3/5 w-3 h-3 bg-accent-800 rounded-full opacity-30 floating-element" style="animation-delay: -23s;"></div>
-        <div class="absolute top-1/5 right-4 w-2 h-2 bg-primary-900 rounded-full opacity-20 floating-element-slow" style="animation-delay: -24s;"></div>
-        <div class="absolute bottom-1/5 left-4/5 w-2 h-2 bg-accent-900 rounded-full opacity-25 floating-element-fast" style="animation-delay: -25s;"></div>
-        <div class="absolute top-4/5 right-2/3 w-4 h-4 bg-primary-800 rounded-full opacity-30 floating-element" style="animation-delay: -26s;"></div>
-        <div class="absolute bottom-4/5 left-1/3 w-4 h-4 bg-accent-800 rounded-full opacity-35 floating-element-slow" style="animation-delay: -27s;"></div>
+        <div class="absolute top-12 right-1/3 w-3 h-3 bg-primary-800 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -22s;"></div>
+        <div class="absolute bottom-12 left-3/5 w-3 h-3 bg-accent-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -23s;"></div>
+        <div class="absolute top-1/5 right-4 w-2 h-2 bg-primary-900 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -24s;"></div>
+        <div class="absolute bottom-1/5 left-4/5 w-2 h-2 bg-accent-900 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -25s;"></div>
+        <div class="absolute top-4/5 right-2/3 w-4 h-4 bg-primary-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -26s;"></div>
+        <div class="absolute bottom-4/5 left-1/3 w-4 h-4 bg-accent-800 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -27s;"></div>
 
         <!-- Additional medium elements -->
-        <div class="absolute top-1/8 left-4/5 w-15 h-15 bg-primary-300 rounded-full opacity-50 floating-element-diagonal" style="animation-delay: -28s;"></div>
-        <div class="absolute bottom-1/8 right-4/5 w-17 h-17 bg-accent-300 rounded-full opacity-45 floating-element-fast" style="animation-delay: -29s;"></div>
-        <div class="absolute top-7/8 left-1/8 w-12 h-12 bg-primary-400 rounded-full opacity-55 floating-element-slow" style="animation-delay: -30s;"></div>
-        <div class="absolute bottom-7/8 right-1/8 w-14 h-14 bg-accent-400 rounded-full opacity-50 floating-element-diagonal" style="animation-delay: -31s;"></div>
+        <div class="absolute top-1/8 left-4/5 w-15 h-15 bg-primary-300 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -28s;"></div>
+        <div class="absolute bottom-1/8 right-4/5 w-17 h-17 bg-accent-300 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -29s;"></div>
+        <div class="absolute top-7/8 left-1/8 w-12 h-12 bg-primary-400 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -30s;"></div>
+        <div class="absolute bottom-7/8 right-1/8 w-14 h-14 bg-accent-400 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -31s;"></div>
 
         <!-- Final sparkle additions -->
-        <div class="absolute top-3/5 left-3/5 w-2 h-2 bg-primary-900 rounded-full opacity-15 floating-element-fast" style="animation-delay: -32s;"></div>
-        <div class="absolute bottom-3/5 right-3/5 w-3 h-3 bg-accent-900 rounded-full opacity-20 floating-element-slow" style="animation-delay: -33s;"></div>
-        <div class="absolute top-1/10 right-1/10 w-4 h-4 bg-primary-800 rounded-full opacity-25 floating-element-diagonal" style="animation-delay: -34s;"></div>
-        <div class="absolute bottom-1/10 left-1/10 w-3 h-3 bg-accent-800 rounded-full opacity-30 floating-element" style="animation-delay: -35s;"></div>
-        <div class="absolute top-9/10 right-9/10 w-2 h-2 bg-primary-700 rounded-full opacity-20 floating-element-fast" style="animation-delay: -36s;"></div>
-        <div class="absolute bottom-9/10 left-9/10 w-3 h-3 bg-accent-700 rounded-full opacity-25 floating-element-diagonal" style="animation-delay: -37s;"></div>
+        <div class="absolute top-3/5 left-3/5 w-2 h-2 bg-primary-900 rounded-full opacity-15" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -32s;"></div>
+        <div class="absolute bottom-3/5 right-3/5 w-3 h-3 bg-accent-900 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -33s;"></div>
+        <div class="absolute top-1/10 right-1/10 w-4 h-4 bg-primary-800 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -34s;"></div>
+        <div class="absolute bottom-1/10 left-1/10 w-3 h-3 bg-accent-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -35s;"></div>
+        <div class="absolute top-9/10 right-9/10 w-2 h-2 bg-primary-700 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -36s;"></div>
+        <div class="absolute bottom-9/10 left-9/10 w-3 h-3 bg-accent-700 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -37s;"></div>
       </div>
 
       <div class="container-max relative">
@@ -213,6 +213,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 const featuredSkills = [
   { name: 'Vue.js', icon: '🟢', description: 'Vue 2 & 3 Expert', delay: '0s' },
   { name: 'Nuxt.js', icon: '🌊', description: 'SSR & Static Sites', delay: '0.1s' },
@@ -258,4 +259,20 @@ const featuredProjects = [
     delay: '0.2s'
   }
 ]
+
+// Animation toggle state
+const animationsEnabled = ref(true)
+
+// Load animation preference on mount
+onMounted(() => {
+  const saved = localStorage.getItem('floatingElementsEnabled')
+  if (saved !== null) {
+    animationsEnabled.value = saved === 'true'
+  }
+
+  // Listen for animation toggle events
+  window.addEventListener('floatingElementsToggle', (event: any) => {
+    animationsEnabled.value = event.detail.enabled
+  })
+})
 </script>
