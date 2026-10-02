@@ -1,12 +1,16 @@
-import { createApp } from 'vue'
+import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-import router from './router'
+import { routes, scrollBehavior } from './router'
+import '@fontsource-variable/geist'
 import './assets/main.css'
 
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+// vite-ssg pre-renders every route to static HTML at build time,
+// then hydrates it in the browser like a normal Vue SPA.
+export const createApp = ViteSSG(
+  App,
+  { routes, scrollBehavior, base: import.meta.env.BASE_URL },
+  ({ app }) => {
+    app.use(createPinia())
+  }
+)

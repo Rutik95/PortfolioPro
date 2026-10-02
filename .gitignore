@@ -82,7 +82,7 @@ node_modules/
 
 # Gatsby files
 .cache/
-public
+# public  (Gatsby build output; not used here. Vite keeps source assets in public/)
 
 # Storybook build outputs
 .out
@@ -113,3 +113,8 @@ Thumbs.db
 
 # Cursor specific
 .cursorignore
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
+
+# TypeScript incremental build info
+*.tsbuildinfo

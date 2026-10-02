@@ -151,6 +151,14 @@
 </template>
 
 <script setup lang="ts">
+import { usePageSeo } from '@/composables/usePageSeo'
+
+usePageSeo({
+  title: 'About',
+  description: 'Rutik Tarerkar is a Full Stack Developer with close to 4 years of experience in Vue.js, Nuxt.js and Java, currently working on the Thomas Cook / SOTC travel booking platform.',
+  path: '/about'
+})
+
 const skillCategories = [
   {
     title: 'Core Frameworks',

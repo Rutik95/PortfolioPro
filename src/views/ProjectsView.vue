@@ -113,6 +113,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { usePageSeo } from '@/composables/usePageSeo'
+
+usePageSeo({
+  title: 'Projects',
+  description: 'Selected work by Rutik Tarerkar: enterprise flight search on the Thomas Cook / SOTC platform, a live cricket scoreboard system and a machine-learning helmet detection project.',
+  path: '/projects'
+})
+
 
 const activeFilter = ref('all')
 

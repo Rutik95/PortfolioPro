@@ -214,6 +214,50 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useHead } from '@unhead/vue'
+import { usePageSeo } from '@/composables/usePageSeo'
+import { site, isSet, absoluteUrl } from '@/config/site'
+
+usePageSeo({ path: '/' })
+
+const address = { '@type': 'PostalAddress', addressLocality: 'Panvel', addressRegion: 'Maharashtra', addressCountry: 'IN' }
+
+// Structured data so search engines understand who this site is for
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': absoluteUrl('/#person'),
+            name: site.name,
+            jobTitle: 'Full Stack Developer',
+            url: site.url,
+            email: `mailto:${site.email}`,
+            address,
+            sameAs: [site.linkedin, site.github].filter(isSet),
+            knowsAbout: ['Vue.js', 'Nuxt.js', 'JavaScript', 'Tailwind CSS', 'Java', 'Spring Boot', 'Web performance', 'SEO']
+          },
+          {
+            '@type': 'ProfessionalService',
+            '@id': absoluteUrl('/#service'),
+            name: `${site.name} Web Development`,
+            url: site.url,
+            image: absoluteUrl(site.ogImage),
+            description: site.description,
+            founder: { '@id': absoluteUrl('/#person') },
+            areaServed: 'Worldwide',
+            address
+          }
+        ]
+      })
+    }
+  ]
+})
+
 const featuredSkills = [
   { name: 'Vue.js', icon: '🟢', description: 'Vue 2 & 3 Expert', delay: '0s' },
   { name: 'Nuxt.js', icon: '🌊', description: 'SSR & Static Sites', delay: '0.1s' },
