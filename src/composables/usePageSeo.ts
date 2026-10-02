@@ -9,7 +9,7 @@ interface PageSeo {
   noindex?: boolean
 }
 
-const imageAlt = `${site.name}, web developer for small businesses and startups`
+const imageAlt = `${site.name}, ${site.role.toLowerCase()} for travel platforms`
 
 /** Per-page title, description, canonical URL, Open Graph and Twitter card tags. */
 export function usePageSeo({ title, description = site.description, path, noindex = false }: PageSeo) {

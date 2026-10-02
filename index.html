@@ -2,12 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="author" content="Rutik Tarerkar" />
+    <meta name="theme-color" content="#06080b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="author" content="Rutik Tarekar" />
     <!-- Title, description, canonical, Open Graph and Twitter tags are injected per page by usePageSeo() -->
+    <noscript>
+      <!-- Without JavaScript the flight cannot run: lay the home page out as a plain document instead. -->
+      <style>
+        .flight__copy { position: static !important; }
+        .flight [data-sc-copy] { opacity: 1 !important; position: static !important; margin: 4rem 1.5rem; }
+        .flight__stage, .flight [data-sc-spacer], .rail { display: none !important; }
+      </style>
+    </noscript>
   </head>
   <body>
     <div id="app"></div>

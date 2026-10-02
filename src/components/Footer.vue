@@ -1,37 +1,32 @@
 <template>
-  <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-    <div class="container-max section-padding">
-      <div class="text-center">
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
-          © {{ year }} {{ site.name }}. Built with Vue.js and Tailwind CSS.
-        </p>
-        <div class="flex justify-center space-x-6">
-          <a
-            v-for="social in socialLinks"
-            :key="social.name"
-            :href="social.url"
-            :target="social.external ? '_blank' : undefined"
-            :rel="social.external ? 'noopener noreferrer' : undefined"
-            class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-          >
-            <span class="sr-only">{{ social.name }}</span>
-            <BaseIcon :name="social.icon" class="w-6 h-6" />
-          </a>
-        </div>
-      </div>
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__line">{{ site.name }}, {{ site.role.toLowerCase() }}. {{ site.location }}.</p>
+      <ul class="foot__links">
+        <li><a :href="`mailto:${site.email}`">Email</a></li>
+        <li><a :href="site.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li v-if="isSet(site.github)"><a :href="site.github" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a :href="site.resume" download>CV</a></li>
+      </ul>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
-import BaseIcon, { type IconName } from '@/components/BaseIcon.vue'
 import { site, isSet } from '@/config/site'
-
-const year = new Date().getFullYear()
-
-const socialLinks = ([
-  { name: 'GitHub', url: site.github, icon: 'github', external: true },
-  { name: 'LinkedIn', url: site.linkedin, icon: 'linkedin', external: true },
-  { name: 'Email', url: `mailto:${site.email}`, icon: 'email', external: false },
-] as { name: string; url: string; icon: IconName; external: boolean }[]).filter((l) => isSet(l.url))
 </script>
+
+<style scoped>
+.foot { border-top: 1px solid var(--sc-hairline); }
+.foot__inner {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--sc-4) var(--sc-6);
+  padding: var(--sc-7) var(--sc-gutter) var(--sc-8);
+  max-width: var(--sc-maxw); margin-inline: auto;
+}
+.foot__line { margin: 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+.foot__links { display: flex; gap: var(--sc-6); list-style: none; margin: 0; padding: 0; }
+.foot__links a { font-size: var(--sc-t-sm); color: var(--sc-ink); text-decoration: none; }
+@media (hover: hover) and (pointer: fine) {
+  .foot__links a:hover { text-decoration: underline; }
+}
+</style>

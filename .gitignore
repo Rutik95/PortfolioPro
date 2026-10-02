@@ -122,3 +122,6 @@ Thumbs.db
 # Local AI tooling (Claude Code skills), not part of the site
 .claude/
 skills-lock.json
+
+# ScrollCraft verification screenshots
+scrollcraft/builds/*/lab/

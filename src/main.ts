@@ -3,6 +3,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import { routes, scrollBehavior } from './router'
 import '@fontsource-variable/geist'
+import '@fontsource-variable/archivo/wdth.css'
+import './vendor/scrollcraft/scrollcraft.css'
 import './assets/main.css'
 
 // vite-ssg pre-renders every route to static HTML at build time,

@@ -1,134 +1,57 @@
-# Rutik Tarerkar's Portfolio
+# Rutik Tarekar: portfolio
 
-A modern, responsive portfolio website for a Frontend Engineer specializing in Vue.js, enterprise applications, and AI-enhanced development. Built with Vue.js 3, TypeScript, and Tailwind CSS.
+A frontend engineer's portfolio presented as one night flight. Scrolling flies
+the aircraft: departure, takeoff, cruise, the career laid out as a route over
+the clouds, three projects seen through gaps in the deck, the approach
+checklist, and a landing into a city of lights that ends at the contact details.
 
-## 🚀 Features
+Built with Vue 3, Vite, vite-ssg (every route is prerendered to static HTML),
+Three.js for the world and the ScrollCraft worldflight engine for the scroll
+track and copy windows.
 
-- **Modern Tech Stack**: Vue 3, TypeScript, Vite, Tailwind CSS
-- **Responsive Design**: Mobile-first approach with beautiful animations
-- **Fast Performance**: Optimized with Vite for lightning-fast development
-- **SEO Friendly**: Proper meta tags and semantic HTML
-- **Project Showcase**: Filterable project gallery with detailed descriptions
-- **Contact Form**: Functional contact form with validation
-- **Experience Timeline**: Interactive timeline of professional experience
+## Running it
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework**: Vue.js 3 with Composition API
-- **Language**: TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **State Management**: Pinia
-- **Routing**: Vue Router 4
-- **Icons**: Custom SVG components
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── src/
-│   ├── assets/         # Static assets and styles
-│   ├── components/     # Reusable Vue components
-│   ├── views/         # Page components
-│   ├── router/        # Vue Router configuration
-│   └── stores/        # Pinia stores
-├── public/            # Public assets
-└── dist/             # Build output
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies:
 ```bash
 npm install
+npm run dev        # http://localhost:5173
+npm run build      # static site in dist/, deployed by Vercel
 ```
 
-3. Start the development server:
+## Where things live
+
+| Path | What |
+|---|---|
+| `src/config/site.ts` | Name, URLs, email, CV path. Change the name here and every page follows. |
+| `src/data/profile.ts` | Every fact on the site, taken from the CV. Roles, career fixes, projects, the checklist, skills. |
+| `src/views/HomeView.vue` | The flight page: worldflight markup, copy at each waypoint, the bridge between scroll and renderer. |
+| `src/components/FlightRail.vue` | The flight-profile rail at the bottom. It is the home page's navigation. |
+| `src/flight/path.ts` | The timeline: legs, aircraft position and attitude, and camera keys for desktop and phone. |
+| `src/flight/world.ts` | Renderer, post-processing, lights, the per-frame update. |
+| `src/flight/aircraft.ts`, `ground.ts`, `clouds.ts`, `sky.ts`, `route.ts` | The aircraft, cities and airports, the volumetric cloud deck, sky, contrail and route. |
+| `src/vendor/scrollcraft/` | ScrollCraft engine, vendored unmodified. |
+| `public/flight/posters/` | One frame per leg, rendered from the live scene. Shown under reduced motion or when WebGL is unavailable. |
+| `scrollcraft/builds/flight-journey/BRIEF.md` | The creative brief: journey, feeling curve, peak, grammar. |
+
+## Regenerating assets
+
+Posters and the social card are rendered from the real scene, so re-run them
+after changing the world (dev server running):
+
 ```bash
-npm run dev
+npm run flight:posters
+npm run og
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+## Swapping in real footage later
 
-### Build for Production
+Each leg in `HomeView.vue` is a `data-sc-segment` holding a poster. Add a
+`<video data-sc-src="..." data-sc-src-mobile="...">` inside a leg and the
+ScrollCraft engine will scrub it with the scroll. Encode scrub clips with a
+dense GOP (keyframe every 4 to 8 frames) and no audio track.
 
-```bash
-npm run build
-```
+## Accessibility and fallbacks
 
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## 🎨 Customization
-
-### Personal Information
-
-Update the following files with your information:
-- `src/views/HomeView.vue` - Hero section and personal details
-- `src/views/AboutView.vue` - About section and experience
-- `src/views/ContactView.vue` - Contact information and social links
-
-### Projects
-
-Edit the `projects` array in `src/views/ProjectsView.vue` to showcase your work.
-
-### Styling
-
-The design uses Tailwind CSS. Customize colors and styles in:
-- `tailwind.config.js` - Tailwind configuration
-- `src/assets/main.css` - Additional styles
-
-## 📱 Sections
-
-1. **Home**: Hero section with introduction and featured projects
-2. **About**: Personal story, skills, and professional experience
-3. **Projects**: Detailed project showcase with filtering
-4. **Contact**: Contact form and social media links
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically on every push
-
-### Netlify
-
-1. Build the project: `npm run build`
-2. Upload the `dist` folder to Netlify
-3. Configure build settings if needed
-
-### GitHub Pages
-
-1. Install gh-pages: `npm install -D gh-pages`
-2. Add deploy script to package.json
-3. Run: `npm run deploy`
-
-## 🤝 Contributing
-
-Feel free to fork this project and customize it for your needs. If you find any issues or have suggestions, please open an issue or submit a pull request.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Built with ❤️ by Rutik
+- `prefers-reduced-motion`: no WebGL; the leg posters cross-dissolve at the same scroll positions and every line of copy still appears.
+- No WebGL: same poster path.
+- No JavaScript: the home page lays its copy out as a plain document.
+- Experience, Projects and Contact are ordinary documents and carry the full content.

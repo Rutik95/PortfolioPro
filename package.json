@@ -8,7 +8,9 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build:spa": "vite build",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "flight:posters": "node scripts/flight-posters.mjs",
+    "og": "node scripts/og/render.mjs"
   },
   "keywords": [
     "portfolio",
@@ -16,10 +18,11 @@
     "frontend",
     "developer"
   ],
-  "author": "Rutik Tarerkar",
+  "author": "Rutik Tarekar",
   "license": "MIT",
-  "description": "Portfolio of Rutik Tarerkar - Frontend Engineer specializing in Vue.js, enterprise applications, and AI-enhanced development",
+  "description": "Portfolio of Rutik Tarekar, frontend engineer for travel platforms: a night flight rendered in WebGL, driven by scroll",
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
     "@fontsource-variable/geist": "^5.3.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^25.0.10",
@@ -29,16 +32,19 @@
     "pinia": "^3.0.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
+    "three": "^0.186.1",
     "vite-ssg": "^28.3.0",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@types/three": "^0.186.0",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
     "@vue/tsconfig": "^0.8.1",
     "beasties": "^0.3.5",
     "eslint": "^9.39.2",
+    "playwright-core": "^1.63.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vue-tsc": "^3.3.11"

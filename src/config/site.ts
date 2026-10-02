@@ -5,19 +5,24 @@
 export const site = {
   // Change this if you move to a custom domain. Canonical URLs, og:image, sitemap and robots.txt all follow it.
   url: 'https://portfolio-pro-gules-sigma.vercel.app',
-  name: 'Rutik Tarerkar',
-  shortName: 'Rutik.dev',
-  title: 'Rutik Tarerkar | Web Developer for Small Businesses & Startups',
+  // The CV spells the surname "Tarerkar"; the email, LinkedIn handle and git user spell it "Tarekar".
+  // Confirm which is correct and change it here: every page, title and meta tag follows.
+  name: 'Rutik Tarekar',
+  shortName: 'Rutik Tarekar',
+  role: 'Frontend Engineer',
+  title: 'Rutik Tarekar | Frontend Engineer for travel platforms',
   description:
-    'Freelance web developer building fast, modern websites and web apps for small businesses and startups. Close to 4 years shipping production Vue.js on the Thomas Cook / SOTC travel platform.',
+    'Frontend engineer building travel and aviation platforms since 2022. Currently owning the Flights frontend on the Thomas Cook travel platform. Vue 2 & 3, Nuxt, REST APIs, AI-assisted development.',
   ogImage: '/og-image.png',
   locale: 'en_IN',
   twitterHandle: '', // e.g. '@yourhandle'. Leave empty if you don't use X/Twitter
 
   email: 'rutiktarekar95@gmail.com',
+  phone: '+91 9892637250',
   location: 'Panvel, Navi Mumbai, India',
   linkedin: 'https://www.linkedin.com/in/rutik-tarekar-r95/',
   github: '[GITHUB_URL]',
+  resume: '/Rutik-Tarekar-CV.pdf',
   whatsappNumber: '[YOUR_WHATSAPP_NUMBER]', // digits only with country code, e.g. 919800000000
   bookingUrl: '[BOOKING_LINK]', // e.g. your Calendly or Cal.com link
 } as const
@@ -25,7 +30,7 @@ export const site = {
 /** True once a placeholder has been replaced with a real value. */
 export const isSet = (value: string) => value.length > 0 && !value.startsWith('[')
 
-export const whatsappLink = (message = "Hi Rutik, I'd like to talk about a website.") =>
+export const whatsappLink = (message = "Hi Rutik, I'd like to talk about a frontend role.") =>
   isSet(site.whatsappNumber)
     ? `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`
     : ''
