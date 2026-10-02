@@ -1,265 +1,137 @@
 <template>
-  <div class="pt-20">
-    <!-- Contact Section -->
-    <section class="section-padding page-section-bg">
-      <div class="container-max">
-        <div class="max-w-4xl mx-auto">
-          <!-- Header -->
-          <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">Get In Touch</h1>
-            <p class="text-xl page-description leading-relaxed">
-              I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
-            </p>
-          </div>
+  <div>
+    <section class="container-site pt-32 pb-12 md:pt-40">
+      <h1 class="rise max-w-[16ch] text-[clamp(2.4rem,1.5rem+3.6vw,4.25rem)] leading-[1.03] font-[640] tracking-[-0.04em]">
+        Let's talk about your <span class="serif">website.</span>
+      </h1>
+      <p class="rise rise-1 lede mt-6 md:text-xl">
+        Pick whatever is easiest for you. The first call is free and there's no obligation.
+      </p>
+    </section>
 
-          <div class="grid md:grid-cols-2 gap-12">
-            <!-- Contact Form -->
-            <div class="experience-card-bg rounded-lg p-8">
-              <h2 class="text-2xl font-bold page-heading-secondary mb-6">Send a Message</h2>
+    <section class="container-site grid gap-4 pb-16 lg:grid-cols-3">
+      <!-- Book a call -->
+      <a
+        :href="booking"
+        :target="externalBooking ? '_blank' : undefined"
+        :rel="externalBooking ? 'noopener' : undefined"
+        class="group bezel bezel-dark rise rise-2 block"
+      >
+        <div class="bezel-core flex flex-col p-7 sm:p-8">
+          <PhCalendarBlank :size="30" class="text-accent-light" />
+          <h2 class="mt-8 text-2xl font-semibold tracking-tight">Book a call</h2>
+          <p class="mt-2 text-ink-muted">
+            Pick a time that suits you and we'll talk through your project.
+            <Placeholder v-if="!externalBooking" text="[BOOKING_LINK] (opens email until added)" />
+          </p>
+          <span class="mt-8 inline-flex items-center gap-2 font-medium">
+            Choose a time
+            <PhArrowUpRight :size="18" class="transition-transform duration-500 ease-spring group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+        </div>
+      </a>
 
-              <form @submit.prevent="handleSubmit" class="space-y-6">
-                <div>
-                  <label for="name" class="block text-sm font-medium page-body-secondary mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="Your full name"
-                  />
-                </div>
+      <!-- WhatsApp -->
+      <component
+        :is="whatsapp ? 'a' : 'div'"
+        v-if="whatsapp || showPlaceholders"
+        :href="whatsapp || undefined"
+        target="_blank"
+        rel="noopener"
+        class="group bezel rise rise-2 block"
+      >
+        <div class="bezel-core flex flex-col p-7 sm:p-8">
+          <PhWhatsappLogo :size="30" class="text-[#25d366]" />
+          <h2 class="mt-8 text-2xl font-semibold tracking-tight">WhatsApp</h2>
+          <p class="mt-2 text-muted">
+            Send a quick message, a voice note or a few photos of what you have in mind.
+          </p>
+          <span class="mt-8 inline-flex items-center gap-2 font-medium">
+            <template v-if="whatsapp">Start a chat</template>
+            <Placeholder v-else text="[YOUR_WHATSAPP_NUMBER]" />
+            <PhArrowUpRight v-if="whatsapp" :size="18" class="transition-transform duration-500 ease-spring group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </span>
+        </div>
+      </component>
 
-                <div>
-                  <label for="email" class="block text-sm font-medium page-body-secondary mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
+      <!-- Email -->
+      <a :href="`mailto:${site.email}`" class="group bezel rise rise-2 block" :class="{ 'lg:col-span-2': !whatsapp && !showPlaceholders }">
+        <div class="bezel-core flex flex-col p-7 sm:p-8">
+          <PhEnvelopeSimple :size="30" class="text-accent" />
+          <h2 class="mt-8 text-2xl font-semibold tracking-tight">Email</h2>
+          <p class="mt-2 text-muted">Better for longer briefs, files or links to sites you like.</p>
+          <span class="mt-8 inline-flex items-center gap-2 font-medium break-all">
+            {{ site.email }}
+          </span>
+        </div>
+      </a>
+    </section>
 
-                <div>
-                  <label for="subject" class="block text-sm font-medium page-body-secondary mb-2">
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    v-model="form.subject"
-                    type="text"
-                    required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label for="message" class="block text-sm font-medium page-body-secondary mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    v-model="form.message"
-                    rows="5"
-                    required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell me about your project or opportunity..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  :disabled="isSubmitting"
-                  class="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <span v-if="isSubmitting">Sending...</span>
-                  <span v-else>Send Message</span>
-                </button>
-              </form>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="space-y-8">
-              <div>
-                <h2 class="text-2xl font-bold page-heading-secondary mb-6">Let's Connect</h2>
-                <p class="page-description mb-8 leading-relaxed">
-                  I'm currently available for freelance work and full-time opportunities.
-                  Whether you have a project in mind or just want to chat about technology,
-                  I'd love to hear from you.
-                </p>
-              </div>
-
-              <!-- Contact Methods -->
-              <div class="space-y-6">
-                <div
-                  v-for="contact in contactMethods"
-                  :key="contact.type"
-                  class="flex items-center space-x-4"
-                >
-                  <div class="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                    <BaseIcon :name="contact.icon" class="w-6 h-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <h3 class="font-semibold page-heading-secondary">{{ contact.type }}</h3>
-                    <a
-                      v-if="contact.href"
-                      :href="contact.href"
-                      :target="contact.external ? '_blank' : '_self'"
-                      rel="noopener noreferrer"
-                      class="text-primary-600 hover:text-primary-700 transition-colors"
-                    >
-                      {{ contact.value }}
-                    </a>
-                    <p v-else class="page-description">{{ contact.value }}</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Social Links -->
-              <div>
-                <h3 class="font-semibold page-heading-secondary mb-4">Follow Me</h3>
-                <div class="flex space-x-4">
-                  <a
-                    v-for="social in socialLinks"
-                    :key="social.name"
-                    :href="social.url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-10 h-10 social-link-bg rounded-lg flex items-center justify-center social-link-text hover:text-primary-600 transition-colors"
-                    :title="social.name"
-                  >
-                    <BaseIcon :name="social.icon" class="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section class="section border-t border-line">
+      <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+        <h2 class="h-section reveal">Helpful to include</h2>
+        <div class="reveal">
+          <ul class="grid gap-4 sm:grid-cols-2">
+            <li v-for="item in brief" :key="item" class="flex gap-3">
+              <PhCheck :size="20" weight="bold" class="mt-0.5 shrink-0 text-accent" />
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+          <p class="mt-10 text-muted">
+            Don't have all of this yet? That's fine. We can work it out on the call.
+            <template v-if="isSet(site.responseTime)">I usually reply {{ site.responseTime }}.</template>
+            <Placeholder v-else text="[RESPONSE_TIME]" />
+          </p>
+          <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-muted">
+            <li class="flex items-center gap-2"><PhMapPin :size="18" /> {{ site.location }}</li>
+            <li>
+              <a :href="site.linkedin" target="_blank" rel="noopener" class="link inline-flex items-center gap-2 hover:text-ink">
+                <PhLinkedinLogo :size="18" /> LinkedIn
+              </a>
+            </li>
+            <li v-if="isSet(site.github)">
+              <a :href="site.github" target="_blank" rel="noopener" class="link inline-flex items-center gap-2 hover:text-ink">
+                <PhGithubLogo :size="18" /> GitHub
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
-
-    <!-- Success/Error Messages -->
-    <div
-      v-if="submitStatus"
-      class="fixed bottom-4 right-4 z-50"
-    >
-      <div
-        :class="[
-          'px-6 py-4 rounded-lg shadow-lg text-white max-w-sm',
-          submitStatus.type === 'success' ? 'bg-green-500' : 'bg-red-500'
-        ]"
-      >
-        {{ submitStatus.message }}
-      </div>
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import BaseIcon, { type IconName } from '@/components/BaseIcon.vue'
-import { site, isSet } from '@/config/site'
+import {
+  PhCalendarBlank,
+  PhWhatsappLogo,
+  PhEnvelopeSimple,
+  PhArrowUpRight,
+  PhCheck,
+  PhMapPin,
+  PhLinkedinLogo,
+  PhGithubLogo,
+} from '@phosphor-icons/vue'
+import Placeholder from '@/components/Placeholder.vue'
 import { usePageSeo } from '@/composables/usePageSeo'
+import { site, isSet, showPlaceholders, bookingHref, whatsappHref } from '@/config/site'
 
 usePageSeo({
   title: 'Contact',
-  description: 'Get in touch with Rutik Tarerkar about a website, landing page or redesign for your business.',
+  description: 'Get in touch with Rutik Tarerkar about a website, landing page or redesign for your business. Book a call, send a WhatsApp message or email.',
   path: '/contact'
 })
 
-const form = ref({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
+const booking = bookingHref()
+const externalBooking = isSet(site.bookingUrl)
+const whatsapp = whatsappHref()
 
-const isSubmitting = ref(false)
-const submitStatus = ref<{ type: 'success' | 'error', message: string } | null>(null)
-
-const contactMethods: { type: string; value: string; href: string | null; external: boolean; icon: IconName }[] = [
-  {
-    type: 'Email',
-    value: site.email,
-    href: `mailto:${site.email}`,
-    external: false,
-    icon: 'email'
-  },
-  {
-    type: 'Phone',
-    value: '+91 9892637250',
-    href: 'tel:+919892637250',
-    external: false,
-    icon: 'phone'
-  },
-  {
-    type: 'Location',
-    value: 'Panvel, Maharashtra, India',
-    href: null,
-    external: false,
-    icon: 'location'
-  },
-  {
-    type: 'LinkedIn',
-    value: 'linkedin.com/in/rutik-tarekar-r95',
-    href: site.linkedin,
-    external: true,
-    icon: 'linkedin'
-  }
+const brief = [
+  'What your business does and who your customers are',
+  'What you need: a new site, a landing page or a redesign',
+  'Your current website, if you have one',
+  'A few sites you like the look of',
+  'Your rough budget',
+  'When you would like to launch',
 ]
-
-const socialLinks = ([
-  { name: 'GitHub', url: site.github, icon: 'github' },
-  { name: 'LinkedIn', url: site.linkedin, icon: 'linkedin' },
-  { name: 'Email', url: `mailto:${site.email}`, icon: 'email' }
-] as { name: string; url: string; icon: IconName }[]).filter((l) => isSet(l.url))
-
-const handleSubmit = async () => {
-  isSubmitting.value = true
-  submitStatus.value = null
-
-  try {
-    // Simulate API call - replace with actual form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    // For now, just show success message
-    submitStatus.value = {
-      type: 'success',
-      message: 'Message sent successfully! I\'ll get back to you soon.'
-    }
-
-    // Reset form
-    form.value = {
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    }
-
-    // Clear status after 5 seconds
-    setTimeout(() => {
-      submitStatus.value = null
-    }, 5000)
-
-  } catch (error) {
-    submitStatus.value = {
-      type: 'error',
-      message: 'Failed to send message. Please try again.'
-    }
-
-    // Clear error after 5 seconds
-    setTimeout(() => {
-      submitStatus.value = null
-    }, 5000)
-  } finally {
-    isSubmitting.value = false
-  }
-}
 </script>

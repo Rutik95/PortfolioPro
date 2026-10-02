@@ -1,22 +1,27 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
-@font-face{font-family:Geist;src:url("/node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2") format("woff2");font-weight:100 900}
+/* Source for public/og-image.jpg (1200x630). Open via `npm run dev` at /scripts/og/og-image.html and screenshot at 1200x630. */
+@font-face{font-family:"Inter Tight";src:url("/node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2") format("woff2");font-weight:100 900}
+@font-face{font-family:Inter;src:url("/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2");font-weight:100 900}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url("/node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2") format("woff2")}
 *{margin:0;box-sizing:border-box}
 html,body{width:1200px;height:630px;overflow:hidden}
-body{font-family:Geist,sans-serif;background:#111113;color:#f4f4f1;position:relative;padding:72px 80px;display:flex;flex-direction:column;justify-content:space-between}
-body::before{content:"";position:absolute;right:-180px;top:-220px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(213,82,26,.38),rgba(213,82,26,0) 65%)}
+body{font-family:Inter,sans-serif;color:#fff;position:relative;padding:60px 72px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(165deg,#2a0b02 0%,#120400 70%)}
+.glow{position:absolute;right:-420px;bottom:-560px;width:1300px;height:1000px;border-radius:50%;background:radial-gradient(closest-side,#ffb067 0%,#ff8a1f 18%,#ff3d00 38%,rgba(150,26,0,.75) 58%,rgba(60,10,0,.35) 78%,transparent 100%)}
+.rim{position:absolute;right:-520px;bottom:-760px;width:1450px;height:1080px;border-radius:50%;border-top:2px solid rgba(255,196,140,.85);box-shadow:0 -10px 40px rgba(255,120,40,.55),inset 0 22px 60px rgba(255,140,60,.45)}
+.scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(10,3,0,.92) 0%,rgba(14,4,0,.6) 38%,rgba(20,6,0,0) 66%)}
 .top,.mid,.bot{position:relative;z-index:1}
-.top{display:flex;align-items:center;justify-content:space-between;font-size:26px;font-weight:600;letter-spacing:-.01em}
-.mark{width:52px;height:52px;border-radius:13px;background:#f4f4f1;display:grid;place-items:center}
-h1{font-size:76px;line-height:1.02;font-weight:650;letter-spacing:-.035em;max-width:940px}
-h1 span{color:#e0612b}
-.sub{margin-top:26px;font-size:28px;line-height:1.35;color:#a1a1a6;max-width:900px;font-weight:450}
-.bot{display:flex;justify-content:space-between;align-items:flex-end;font-size:24px;color:#d4d4d0;font-weight:500}
-.svc{display:flex;gap:12px}
-.svc b{font-weight:500;border:1.5px solid #3a3a3e;border-radius:999px;padding:10px 20px}
-.url{color:#8a8a8f;font-size:22px}
+.top{display:flex;align-items:center;justify-content:space-between;font-family:"Inter Tight";font-size:26px;font-weight:600;letter-spacing:-.025em}
+.brand{display:flex;align-items:center;gap:14px}
+.url{font-family:Inter;font-size:19px;font-weight:450;color:rgba(255,255,255,.55);letter-spacing:0}
+h1{font-family:"Inter Tight";font-size:84px;line-height:.92;font-weight:600;letter-spacing:-.04em;text-shadow:0 6px 40px rgba(0,0,0,.45)}
+h1 em{font-family:"Instrument Serif";font-weight:400;letter-spacing:-.005em}
+.sub{margin-top:24px;font-size:23px;line-height:1.45;color:rgba(255,255,255,.72);max-width:640px}
+.bot{display:flex;gap:12px}
+.bot b{font-weight:500;font-size:19px;border:1px solid rgba(255,255,255,.16);background:rgba(40,13,3,.55);border-radius:999px;padding:10px 20px}
 </style></head><body>
-<div class="top"><div style="display:flex;align-items:center;gap:18px"><div class="mark"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#111113" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"><path d="M9 26V6h8a6 6 0 0 1 0 12H9"/><path d="M16 18l8 8" stroke="#e0612b"/></svg></div>Rutik Tarerkar</div><div class="url">portfolio-pro-gules-sigma.vercel.app</div></div>
-<div class="mid"><h1>Fast, modern websites that <span>bring in customers.</span></h1>
-<p class="sub">Web developer for small businesses &amp; startups. Close to 4 years building the Thomas Cook / SOTC booking platform.</p></div>
-<div class="bot"><div class="svc"><b>Landing pages</b><b>Business websites</b><b>Redesigns</b></div></div>
+<div class="glow"></div><div class="rim"></div><div class="scrim"></div>
+<div class="top"><div class="brand"><svg width="44" height="44" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ff3d00"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#g)"/><g fill="none" stroke-width="3.4" stroke-linecap="square"><path d="M9 26V6h8a6 6 0 0 1 0 12H9" stroke="#fff"/><path d="M16 18l8 8" stroke="#2a0b02"/></g></svg>Rutik Tarerkar</div><div class="url">portfolio-pro-gules-sigma.vercel.app</div></div>
+<div class="mid"><h1>Websites that bring your<br>business more <em>customers.</em></h1>
+<p class="sub">Web developer for small businesses &amp; startups. 4 years building production web apps, now on the Thomas Cook / SOTC platform.</p></div>
+<div class="bot"><b>Landing pages</b><b>Business websites</b><b>Redesigns</b></div>
 </body></html>

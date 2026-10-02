@@ -1,211 +1,319 @@
 <template>
   <div>
-    <!-- Hero Section -->
-    <section class="relative pt-20 pb-20 overflow-hidden">
-      <!-- Background Elements -->
-      <div v-if="animationsEnabled" class="absolute inset-0">
-        <!-- Large floating elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-60" :class="animationsEnabled ? 'floating-element' : ''"></div>
-        <div class="absolute top-16 right-16 w-24 h-24 bg-accent-200 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -1s;"></div>
-        <div class="absolute bottom-32 left-1/4 w-18 h-18 bg-primary-300 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -3s;"></div>
-        <div class="absolute top-1/3 right-1/3 w-16 h-16 bg-accent-300 rounded-full opacity-65" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -5s;"></div>
-
-        <!-- Medium floating elements -->
-        <div class="absolute top-40 right-20 w-16 h-16 bg-accent-200 rounded-full opacity-70" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -2s;"></div>
-        <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-primary-300 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -4s;"></div>
-        <div class="absolute top-2/3 left-16 w-14 h-14 bg-primary-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -6s;"></div>
-        <div class="absolute bottom-40 right-32 w-10 h-10 bg-accent-400 rounded-full opacity-60" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -7s;"></div>
-
-        <!-- Small floating elements -->
-        <div class="absolute top-1/2 left-1/2 w-8 h-8 bg-primary-500 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -8s;"></div>
-        <div class="absolute bottom-16 right-1/4 w-6 h-6 bg-accent-500 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -9s;"></div>
-        <div class="absolute top-24 left-3/4 w-7 h-7 bg-primary-600 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -10s;"></div>
-        <div class="absolute bottom-1/3 right-12 w-9 h-9 bg-accent-600 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -11s;"></div>
-
-        <!-- Extra decorative elements -->
-        <div class="absolute top-8 left-1/3 w-4 h-4 bg-primary-700 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -12s;"></div>
-        <div class="absolute bottom-8 right-1/2 w-5 h-5 bg-accent-700 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -13s;"></div>
-
-        <!-- Even more floating elements -->
-        <div class="absolute top-1/4 left-2/3 w-11 h-11 bg-primary-500 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -14s;"></div>
-        <div class="absolute bottom-1/4 right-8 w-13 h-13 bg-accent-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -15s;"></div>
-        <div class="absolute top-3/4 left-1/5 w-9 h-9 bg-primary-600 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -16s;"></div>
-        <div class="absolute top-1/6 right-3/4 w-7 h-7 bg-accent-500 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -17s;"></div>
-        <div class="absolute bottom-3/4 left-2/5 w-6 h-6 bg-primary-700 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -18s;"></div>
-        <div class="absolute top-5/6 right-1/5 w-8 h-8 bg-accent-600 rounded-full opacity-40" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -19s;"></div>
-        <div class="absolute top-2/5 left-1/6 w-10 h-10 bg-primary-400 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -20s;"></div>
-        <div class="absolute bottom-2/5 right-2/5 w-5 h-5 bg-accent-700 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -21s;"></div>
-
-        <!-- Tiny sparkle elements -->
-        <div class="absolute top-12 right-1/3 w-3 h-3 bg-primary-800 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -22s;"></div>
-        <div class="absolute bottom-12 left-3/5 w-3 h-3 bg-accent-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -23s;"></div>
-        <div class="absolute top-1/5 right-4 w-2 h-2 bg-primary-900 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -24s;"></div>
-        <div class="absolute bottom-1/5 left-4/5 w-2 h-2 bg-accent-900 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -25s;"></div>
-        <div class="absolute top-4/5 right-2/3 w-4 h-4 bg-primary-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -26s;"></div>
-        <div class="absolute bottom-4/5 left-1/3 w-4 h-4 bg-accent-800 rounded-full opacity-35" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -27s;"></div>
-
-        <!-- Additional medium elements -->
-        <div class="absolute top-1/8 left-4/5 w-15 h-15 bg-primary-300 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -28s;"></div>
-        <div class="absolute bottom-1/8 right-4/5 w-17 h-17 bg-accent-300 rounded-full opacity-45" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -29s;"></div>
-        <div class="absolute top-7/8 left-1/8 w-12 h-12 bg-primary-400 rounded-full opacity-55" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -30s;"></div>
-        <div class="absolute bottom-7/8 right-1/8 w-14 h-14 bg-accent-400 rounded-full opacity-50" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -31s;"></div>
-
-        <!-- Final sparkle additions -->
-        <div class="absolute top-3/5 left-3/5 w-2 h-2 bg-primary-900 rounded-full opacity-15" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -32s;"></div>
-        <div class="absolute bottom-3/5 right-3/5 w-3 h-3 bg-accent-900 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-slow' : ''" style="animation-delay: -33s;"></div>
-        <div class="absolute top-1/10 right-1/10 w-4 h-4 bg-primary-800 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -34s;"></div>
-        <div class="absolute bottom-1/10 left-1/10 w-3 h-3 bg-accent-800 rounded-full opacity-30" :class="animationsEnabled ? 'floating-element' : ''" style="animation-delay: -35s;"></div>
-        <div class="absolute top-9/10 right-9/10 w-2 h-2 bg-primary-700 rounded-full opacity-20" :class="animationsEnabled ? 'floating-element-fast' : ''" style="animation-delay: -36s;"></div>
-        <div class="absolute bottom-9/10 left-9/10 w-3 h-3 bg-accent-700 rounded-full opacity-25" :class="animationsEnabled ? 'floating-element-diagonal' : ''" style="animation-delay: -37s;"></div>
+    <!-- Hero -->
+    <section id="hero" class="hero px-[clamp(1.125rem,2.6vw,2.75rem)]">
+      <div class="hero-ember" aria-hidden="true">
+        <video
+          v-if="isSet(site.heroVideo)"
+          ref="video"
+          class="hero-ember__video"
+          :src="site.heroVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        />
+        <template v-else>
+          <div class="hero-ember__glow" />
+          <div class="hero-ember__rim" />
+        </template>
+        <div class="hero-ember__scrim" />
+        <div class="hero-ember__rules"><span /><span /><span /></div>
       </div>
 
-      <div class="container-max relative">
-        <div class="text-center max-w-5xl mx-auto">
-          <div class="animate-fade-in">
-            <div class="inline-block px-6 py-2 bg-white/70 backdrop-blur-sm rounded-full text-primary-700 font-medium text-sm mb-6 shadow-lg">
-              🎯 Frontend Engineer & Vue.js Specialist
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">
-              Hi, I'm Rutik
-            </h1>
-            <p class="text-xl md:text-2xl hero-subtitle mb-8 font-medium">
-              Building exceptional digital experiences in travel & aviation
-            </p>
-            <p class="text-lg hero-description mb-12 max-w-3xl mx-auto leading-relaxed">
-              Frontend Engineer with 3+ years of experience owning critical modules for enterprise travel platforms.
-              Expert in Vue.js, API-driven UI development, and modernizing legacy systems. Passionate about scalable solutions and leveraging AI tools for development excellence.
-            </p>
+      <div class="grid flex-1 content-center gap-10 min-[1120px]:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)] min-[1120px]:items-start">
+        <div class="max-w-[40rem]">
+          <p class="rise flex w-fit max-w-[19rem] items-center gap-2.5 border-t border-white/8 pt-3 text-[0.75rem] leading-snug text-white/50">
+            <PhGlobeHemisphereEast :size="20" weight="light" class="shrink-0" />
+            <span>Freelance web developer for small<br />businesses and startups</span>
+          </p>
+
+          <h1 class="hero-title rise rise-1 mt-5">
+            Websites that<br />
+            bring your<br />
+            business more<br />
+            <span class="serif">customers.</span>
+          </h1>
+
+          <p class="rise rise-2 mt-5 max-w-[26rem] text-[0.9375rem] leading-relaxed text-white/72">
+            Fast, beautiful websites for small businesses and startups, from a developer who builds flight search for Thomas Cook&nbsp;/&nbsp;SOTC.
+          </p>
+
+          <div class="rise rise-3 mt-7">
+            <CtaButtons />
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up">
-            <router-link to="/projects" class="btn-primary glow-effect">
-              🚀 View My Work
-            </router-link>
-            <router-link to="/contact" class="btn-secondary">
-              💬 Get In Touch
-            </router-link>
-          </div>
+          <ul class="rise rise-4 mt-7 flex flex-wrap gap-3.5">
+            <li v-for="stat in heroStats" :key="stat.label" class="stat-card">
+              <span class="absolute top-3.5 right-4 text-white/45" aria-hidden="true">*</span>
+              <span class="font-display text-[clamp(1.7rem,2.4vw,2.3rem)] leading-none font-medium tracking-[-0.03em]">{{ stat.value }}</span>
+              <span class="max-w-[9rem] text-[0.75rem] leading-snug text-white/55">{{ stat.label }}</span>
+              <span class="absolute right-4 bottom-[1.375rem] h-px w-3.5 bg-white/28" aria-hidden="true" />
+            </li>
+          </ul>
+        </div>
 
-          <!-- Quick Stats -->
-          <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-            <div class="card p-6 text-center animate-slide-in-left">
-              <div class="text-2xl font-bold text-primary-600 mb-1">3+</div>
-              <div class="text-sm text-gray-600">Years Experience</div>
-            </div>
-            <div class="card p-6 text-center animate-slide-in-left" style="animation-delay: 0.1s;">
-              <div class="text-2xl font-bold text-primary-600 mb-1">Vue.js</div>
-              <div class="text-sm text-gray-600">Primary Framework</div>
-            </div>
-            <div class="card p-6 text-center animate-slide-in-right" style="animation-delay: 0.2s;">
-              <div class="text-2xl font-bold text-accent-600 mb-1">Travel</div>
-              <div class="text-sm text-gray-600">Industry Focus</div>
-            </div>
-            <div class="card p-6 text-center animate-slide-in-right" style="animation-delay: 0.3s;">
-              <div class="text-2xl font-bold text-accent-600 mb-1">AI</div>
-              <div class="text-sm text-gray-600">Enhanced Workflow</div>
-            </div>
-          </div>
+        <!-- Low-opacity side note on wide screens. The numbers are measured on this site, not invented. -->
+        <aside class="mt-10 hidden max-w-[20.5rem] self-start justify-self-end text-white/30 min-[1120px]:block" aria-hidden="true">
+          <p class="flex items-end gap-4">
+            <strong class="font-display text-[3.25rem] leading-none font-semibold tracking-[-0.04em] text-white/55">0.00</strong>
+            <span class="pb-1 text-[0.72rem] leading-snug">Layout shift (CLS)<br />on every page of this site</span>
+          </p>
+          <p class="mt-7 font-display text-[1.375rem] font-medium tracking-[-0.02em] text-white/45">Measured, not promised</p>
+          <p class="mt-2 text-[0.8rem] leading-relaxed">
+            Pre-rendered pages, self-hosted fonts and proper SEO tags. Your website gets the same treatment.
+          </p>
+        </aside>
+      </div>
+
+      <div class="rise rise-5 mt-5 flex flex-col items-start justify-between gap-6 min-[860px]:flex-row min-[860px]:items-end">
+        <span class="hidden font-display text-[clamp(3.4rem,7vw,5.5rem)] leading-[0.8] font-bold tracking-[-0.05em] text-white/[0.055] select-none sm:block" aria-hidden="true">
+          Rutik
+        </span>
+        <div class="min-[860px]:text-right">
+          <span class="mb-3.5 block text-[0.75rem] text-white/50">Built with</span>
+          <ul class="flex flex-wrap items-center gap-x-[clamp(1rem,2.2vw,2rem)] gap-y-3">
+            <li v-for="tech in techStack" :key="tech.title" class="inline-flex items-center gap-2 text-[0.9375rem] font-[450] tracking-[-0.01em] text-white/85">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path :d="tech.path" /></svg>
+              {{ tech.title }}
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Skills Preview -->
-    <section class="section-padding">
-      <div class="container-max">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Core Expertise</h2>
-          <p class="text-lg skills-description max-w-2xl mx-auto">
-            Technologies and tools I use to build scalable, user-focused digital systems
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-          <div
-            v-for="skill in featuredSkills"
-            :key="skill.name"
-            class="card text-center p-8 hover:scale-105 transition-transform duration-300 animate-fade-in"
-            :style="{ animationDelay: skill.delay }"
-          >
-            <div class="text-5xl mb-4">{{ skill.icon }}</div>
-            <h3 class="font-bold text-gray-900 mb-2">{{ skill.name }}</h3>
-            <p class="text-sm text-gray-600">{{ skill.description }}</p>
+    <!-- Credibility -->
+    <section class="section border-t border-line">
+      <div class="container-site grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+        <h2 class="reveal text-[clamp(1.75rem,1.25rem+1.9vw,2.6rem)] leading-[1.15] font-[560] tracking-[-0.03em] text-muted">
+          <span class="text-ink">4 years building production web apps.</span>
+          Right now I work on the Thomas Cook&nbsp;/&nbsp;SOTC travel booking platform, where a slow or broken page costs real bookings.
+        </h2>
+        <dl class="reveal grid content-start gap-8">
+          <div v-for="point in proofPoints" :key="point.title" class="grid grid-cols-[2.75rem_1fr] gap-4">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent-soft text-accent">
+              <component :is="point.icon" :size="22" />
+            </span>
+            <div>
+              <dt class="font-semibold">{{ point.title }}</dt>
+              <dd class="mt-1 text-muted">{{ point.text }}</dd>
+            </div>
           </div>
-        </div>
-
-        <div class="text-center mt-16">
-          <router-link to="/about" class="btn-secondary">
-            📖 Learn More About Me
-          </router-link>
-        </div>
+        </dl>
       </div>
     </section>
 
-    <!-- Featured Projects -->
-    <section class="section-padding projects-section-bg">
-      <div class="container-max">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Featured Projects</h2>
-          <p class="text-lg skills-description max-w-2xl mx-auto">
-            Some of my recent work showcasing Vue.js development and modern web technologies
-          </p>
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container-site">
+        <h2 class="h-section reveal max-w-[18ch]">What I can build for you</h2>
+        <p class="lede reveal mt-5">
+          A fixed quote before any work begins, and a website you own completely.
+        </p>
+
+        <div class="mt-14 grid gap-4">
+          <article v-for="service in services" :key="service.id" class="bezel reveal">
+            <div class="bezel-core grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1.15fr_auto] lg:gap-12 lg:p-10">
+              <div>
+                <h3 class="text-2xl font-semibold tracking-tight">{{ service.name }}</h3>
+                <p class="mt-3 text-muted">{{ service.summary }}</p>
+              </div>
+              <ul class="grid content-start gap-3">
+                <li v-for="item in service.includes" :key="item" class="flex gap-3">
+                  <PhCheck :size="20" weight="bold" class="mt-0.5 shrink-0 text-accent" />
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+              <div class="border-t border-line pt-6 lg:min-w-[11rem] lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+                <template v-if="isSet(service.price)">
+                  <p class="text-sm text-muted">Starting at</p>
+                  <p class="mt-1 text-3xl font-semibold tracking-tight tabular-nums">{{ service.price }}</p>
+                </template>
+                <template v-else-if="showPlaceholders">
+                  <p class="text-sm text-muted">Starting at</p>
+                  <p class="mt-2"><Placeholder :text="service.price" /></p>
+                </template>
+                <p v-else class="text-lg font-semibold tracking-tight">Quote after a short call</p>
+
+                <p v-if="isSet(service.timeline)" class="mt-2 text-sm text-muted">{{ service.timeline }}</p>
+                <p v-else-if="showPlaceholders" class="mt-2"><Placeholder :text="service.timeline" /></p>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
-            v-for="project in featuredProjects"
+        <p class="reveal mt-10 max-w-2xl text-muted">
+          Need something custom, like a booking flow, a dashboard or an integration with tools you already use?
+          I'm a full stack developer, so
+          <router-link to="/contact" class="link font-medium text-ink">tell me what you need</router-link>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section bg-paper-2">
+      <div class="container-site">
+        <h2 class="h-section reveal">How it works</h2>
+        <ol class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <li v-for="step in steps" :key="step.title" class="reveal border-t-2 border-ink pt-6">
+            <component :is="step.icon" :size="28" class="text-accent" />
+            <h3 class="mt-5 text-xl font-semibold tracking-tight">{{ step.title }}</h3>
+            <p class="mt-2 text-muted">{{ step.text }}</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section">
+      <div class="container-site">
+        <h2 class="h-section reveal">Selected work</h2>
+
+        <div class="mt-14 grid gap-4 lg:grid-cols-5">
+          <!-- Main project -->
+          <article class="bezel bezel-dark reveal lg:col-span-3 lg:row-span-2">
+            <div class="bezel-core flex flex-col p-7 sm:p-10">
+              <p class="text-sm text-ink-muted">{{ featured.context }}</p>
+              <h3 class="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{{ featured.title }}</h3>
+              <p class="mt-4 max-w-lg text-ink-muted">{{ featured.summary }}</p>
+              <ul class="mt-8 grid gap-4">
+                <li v-for="h in featured.highlights" :key="h" class="flex gap-3">
+                  <PhCheck :size="20" weight="bold" class="mt-0.5 shrink-0 text-accent-light" />
+                  <span class="text-white/90">{{ h }}</span>
+                </li>
+              </ul>
+              <ul class="mt-auto flex flex-wrap gap-2 pt-10" aria-label="Technologies">
+                <li v-for="t in featured.stack" :key="t" class="rounded-lg bg-white/8 px-2.5 py-1 text-[0.8125rem] text-white/75">{{ t }}</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Other projects -->
+          <article
+            v-for="(project, i) in others"
             :key="project.id"
-            class="card overflow-hidden group animate-fade-in"
-            :style="{ animationDelay: project.delay }"
+            class="bezel reveal lg:col-span-2"
           >
-            <div class="h-48 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center relative">
-              <div class="text-6xl opacity-70 group-hover:opacity-90 transition-opacity">{{ project.icon }}</div>
-              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-semibold text-primary-700">
-                {{ project.category }}
-              </div>
+            <div class="bezel-core flex flex-col p-7 sm:p-8" :class="i === 0 ? '!bg-accent-soft' : ''">
+              <p class="text-sm text-muted">{{ project.context }}</p>
+              <h3 class="mt-2 text-2xl font-semibold tracking-tight">{{ project.title }}</h3>
+              <p class="mt-3 text-muted">{{ project.summary }}</p>
+              <ul class="mt-auto flex flex-wrap gap-2 pt-8" aria-label="Technologies">
+                <li v-for="t in project.stack" :key="t" class="chip">{{ t }}</li>
+              </ul>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{{ project.title }}</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">{{ project.description }}</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span
-                  v-for="tech in project.technologies"
-                  :key="tech"
-                  class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full font-medium"
-                >
-                  {{ tech }}
-                </span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="flex space-x-4">
-                  <a
-                    v-if="project.demo"
-                    :href="project.demo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center"
-                  >
-                    🌐 Demo
-                  </a>
-                  <a
-                    v-if="project.github"
-                    :href="project.github"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-gray-600 hover:text-gray-700 font-medium text-sm flex items-center"
-                  >
-                    💻 Code
-                  </a>
-                </div>
-                <span class="text-xs text-gray-500">{{ project.status }}</span>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
 
-        <div class="text-center mt-12">
-          <router-link to="/projects" class="btn-primary">
-            View All Projects
+        <router-link to="/projects" class="link reveal mt-10 inline-flex items-center gap-2 font-medium">
+          More about these projects <PhArrowRight :size="18" />
+        </router-link>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section border-t border-line">
+      <div class="container-site">
+        <div class="reveal mx-auto max-w-3xl">
+          <div class="flex items-center gap-5">
+            <img
+              v-if="isSet(site.photo)"
+              :src="site.photo"
+              :alt="`Portrait of ${site.name}`"
+              width="96"
+              height="96"
+              class="h-20 w-20 rounded-[1.25rem] object-cover sm:h-24 sm:w-24"
+            />
+            <div v-else-if="showPlaceholders" class="ph-block h-20 w-20 rounded-[1.25rem] text-xs sm:h-24 sm:w-24">[ADD_PHOTO]</div>
+            <h2 class="h-section">Hi, I'm {{ site.firstName }}.</h2>
+          </div>
+          <div class="mt-8 space-y-5 text-lg leading-relaxed text-muted md:text-xl">
+            <p>
+              I'm a full stack developer based in Navi Mumbai with 4 years of experience.
+              I currently work on the <span class="text-ink">Thomas Cook&nbsp;/&nbsp;SOTC</span> travel booking platform,
+              building flight search and moving older screens to modern Vue.js.
+            </p>
+            <p>
+              I also build websites for small businesses and startups. You work with me directly, from the first call to launch,
+              and you get the same standard of work: <span class="text-ink">fast pages, clean code and clear communication.</span>
+            </p>
+          </div>
+          <router-link to="/about" class="link mt-8 inline-flex items-center gap-2 font-medium">
+            More about me <PhArrowRight :size="18" />
           </router-link>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials: hidden in production until a real quote is added in src/content/testimonials.ts -->
+    <section v-if="visibleTestimonials.length" class="section bg-paper-2">
+      <div class="container-site">
+        <h2 class="h-section reveal">What clients say</h2>
+        <div class="mt-14 grid gap-4 md:grid-cols-2">
+          <figure v-for="(t, i) in visibleTestimonials" :key="i" class="bezel reveal">
+            <div class="bezel-core p-8 sm:p-10">
+              <blockquote class="text-xl leading-snug font-medium tracking-tight">
+                <template v-if="isSet(t.quote)">“{{ t.quote }}”</template>
+                <Placeholder v-else :text="t.quote" />
+              </blockquote>
+              <figcaption class="mt-6 text-muted">
+                <span class="block font-semibold text-ink">
+                  <template v-if="isSet(t.name)">{{ t.name }}</template>
+                  <Placeholder v-else :text="t.name" />
+                </span>
+                <template v-if="isSet(t.role)">{{ t.role }}</template>
+                <Placeholder v-else :text="t.role" />
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+        <h2 class="h-section reveal lg:sticky lg:top-28 lg:self-start">Questions clients ask</h2>
+        <dl class="grid gap-10">
+          <div v-for="item in visibleFaqs" :key="item.q" class="reveal">
+            <dt class="text-xl font-semibold tracking-tight">{{ item.q }}</dt>
+            <dd class="mt-3 text-muted">
+              <Placeholder v-if="item.a.startsWith('[')" :text="item.a" />
+              <template v-else>{{ item.a }}</template>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="pb-20 md:pb-28">
+      <div class="container-site">
+        <div class="bezel bezel-dark reveal">
+          <div class="bezel-core relative overflow-hidden px-7 py-14 sm:px-12 md:py-20">
+            <div
+              class="pointer-events-none absolute -right-40 -bottom-48 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,rgb(236_122_74/0.28),transparent_65%)]"
+              aria-hidden="true"
+            />
+            <div class="relative max-w-2xl">
+              <h2 class="text-[clamp(2.1rem,1.5rem+2.6vw,3.5rem)] leading-[1.04] font-[620] tracking-[-0.035em]">
+                Tell me about your <span class="serif">business.</span>
+              </h2>
+              <p class="mt-5 text-lg text-ink-muted">
+                The first call is free and there's no obligation.
+                <template v-if="isSet(site.responseTime)">I usually reply {{ site.responseTime }}.</template>
+                <Placeholder v-else text="[RESPONSE_TIME]" />
+              </p>
+              <div class="mt-10">
+                <CtaButtons />
+              </div>
+              <p class="mt-8 text-ink-muted">
+                Prefer email?
+                <a :href="`mailto:${site.email}`" class="link break-all text-white">{{ site.email }}</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -215,8 +323,27 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useHead } from '@unhead/vue'
+import { siVuedotjs, siNuxt, siTailwindcss, siSpringboot, siJavascript } from 'simple-icons'
+import {
+  PhCheck,
+  PhArrowRight,
+  PhAirplaneTilt,
+  PhArrowsClockwise,
+  PhListChecks,
+  PhChatsCircle,
+  PhReceipt,
+  PhPencilRuler,
+  PhGlobeSimple,
+  PhGlobeHemisphereEast,
+} from '@phosphor-icons/vue'
+import CtaButtons from '@/components/CtaButtons.vue'
+import Placeholder from '@/components/Placeholder.vue'
 import { usePageSeo } from '@/composables/usePageSeo'
-import { site, isSet, absoluteUrl } from '@/config/site'
+import { site, isSet, showPlaceholders, absoluteUrl } from '@/config/site'
+import { services } from '@/content/services'
+import { projects } from '@/content/projects'
+import { testimonials } from '@/content/testimonials'
+import { faqs } from '@/content/faq'
 
 usePageSeo({ path: '/' })
 
@@ -258,65 +385,47 @@ useHead({
   ]
 })
 
-const featuredSkills = [
-  { name: 'Vue.js', icon: '🟢', description: 'Vue 2 & 3 Expert', delay: '0s' },
-  { name: 'Nuxt.js', icon: '🌊', description: 'SSR & Static Sites', delay: '0.1s' },
-  { name: 'AI Tools', icon: '🤖', description: 'Copilot, Claude, GPT', delay: '0.2s' },
-  { name: 'Enterprise', icon: '🏢', description: 'Large Scale Systems', delay: '0.3s' }
-]
-
-const featuredProjects = [
+const proofPoints = [
   {
-    id: 1,
-    title: 'Flights Module - Thomas Cook',
-    description: 'Enterprise-scale flights booking system handling critical business flows, multicity search, and production bug fixes',
-    technologies: ['Vue 3', 'OpenCMS', 'REST APIs', 'Java'],
-    category: 'Enterprise',
-    icon: '✈️',
-    demo: '#',
-    github: '#',
-    status: 'Production',
-    delay: '0s'
+    icon: PhAirplaneTilt,
+    title: 'Complex screens, built to work',
+    text: 'One-way, round-trip and multi-city flight search with fare calculation, used by real customers.'
   },
   {
-    id: 2,
-    title: 'Live Cricket Scoreboard',
-    description: 'Real-time cricket scoreboard with animated UI, sponsor modules, and AI-assisted commentary generation',
-    technologies: ['Vue.js', 'AI Tools', 'Real-time Updates'],
-    category: 'AI-Powered',
-    icon: '🏏',
-    demo: '#',
-    github: '#',
-    status: 'Featured',
-    delay: '0.1s'
+    icon: PhArrowsClockwise,
+    title: 'Old sites, made modern',
+    text: 'Migrated legacy Knockout.js and jQuery screens to Vue on a live platform.'
   },
   {
-    id: 3,
-    title: 'ML Helmet Detection',
-    description: 'Computer vision system to detect helmet compliance and extract number plates from traffic violations',
-    technologies: ['Python', 'OpenCV', 'Machine Learning'],
-    category: 'AI/ML',
-    icon: '🚲',
-    demo: '#',
-    github: '#',
-    status: 'Research',
-    delay: '0.2s'
+    icon: PhListChecks,
+    title: 'Careful releases',
+    text: 'Changes move through DEV, SIT and UAT testing before they reach production.'
   }
 ]
 
-// Animation toggle state
-const animationsEnabled = ref(true)
+const steps = [
+  { icon: PhChatsCircle, title: 'Free call', text: 'We talk about your business, your customers and what the website needs to do.' },
+  { icon: PhReceipt, title: 'Fixed quote', text: 'You get a clear price and timeline in writing before any work starts.' },
+  { icon: PhPencilRuler, title: 'Design and build', text: 'You follow progress on a live preview link and can ask for changes along the way.' },
+  { icon: PhGlobeSimple, title: 'Launch and support', text: 'Your site goes live on your domain with SEO basics in place, and I stay available for fixes.' }
+]
 
-// Load animation preference on mount
+// Hero facts: real, from the resume and the site's own process (no invented client numbers)
+const heroStats = [
+  { value: '4 yrs', label: 'Building production web apps' },
+  { value: 'Fixed', label: 'Price agreed before any work starts' }
+]
+
+const techStack = [siVuedotjs, siNuxt, siTailwindcss, siSpringboot, siJavascript].map(({ title, path }) => ({ title, path }))
+
+// Optional hero video: respect reduced-motion by pausing it
+const video = ref<HTMLVideoElement | null>(null)
 onMounted(() => {
-  const saved = localStorage.getItem('floatingElementsEnabled')
-  if (saved !== null) {
-    animationsEnabled.value = saved === 'true'
-  }
-
-  // Listen for animation toggle events
-  window.addEventListener('floatingElementsToggle', (event: any) => {
-    animationsEnabled.value = event.detail.enabled
-  })
+  if (video.value && window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.value.pause()
 })
+
+const [featured, ...others] = projects as [(typeof projects)[number], ...typeof projects]
+
+const visibleTestimonials = testimonials.filter((t) => isSet(t.quote) || showPlaceholders)
+const visibleFaqs = faqs.filter((f) => !f.a.startsWith('[') || showPlaceholders)
 </script>
