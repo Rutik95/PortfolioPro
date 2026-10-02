@@ -34,7 +34,7 @@ export function usePageSeo({ title, description = site.description, path, noinde
     ogImage: image,
     ogImageWidth: 1200,
     ogImageHeight: 630,
-    ogImageType: 'image/jpeg',
+    ogImageType: 'image/png',
     ogImageAlt: imageAlt,
     twitterCard: 'summary_large_image',
     twitterTitle: fullTitle,

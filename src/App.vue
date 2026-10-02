@@ -1,27 +1,30 @@
 <template>
-  <div class="relative isolate flex min-h-dvh flex-col">
-    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[56rem] bg-[radial-gradient(50%_50%_at_88%_0%,rgb(255_61_0/0.2),transparent_100%)]" aria-hidden="true" />
+  <div class="min-h-screen transition-colors duration-300">
     <a href="#main" class="skip-link">Skip to content</a>
-    <SiteHeader />
-    <main id="main" class="flex-1">
+    <Navigation />
+    <ThemeToggle />
+    <AnimationToggle />
+    <ParticleToggle />
+    <ParticleBackground />
+    <main id="main">
       <router-view />
     </main>
-    <SiteFooter />
-    <WhatsAppFab />
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
+import Navigation from '@/components/Navigation.vue'
+import Footer from '@/components/Footer.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import AnimationToggle from '@/components/AnimationToggle.vue'
+import ParticleBackground from '@/components/ParticleBackground.vue'
+import ParticleToggle from '@/components/ParticleToggle.vue'
 import { useHead } from '@unhead/vue'
-import SiteHeader from '@/components/SiteHeader.vue'
-import SiteFooter from '@/components/SiteFooter.vue'
-import WhatsAppFab from '@/components/WhatsAppFab.vue'
-import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url'
-import interTightLatin from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url'
+import geistLatin from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url'
 
-// Preload the Latin subsets of the body and display faces so text renders without a late font swap
+// Preload the Latin subset so text renders in Geist without a late font swap
 useHead({
-  htmlAttrs: { lang: 'en' },
-  link: [interLatin, interTightLatin].map((href) => ({ rel: 'preload', href, as: 'font', type: 'font/woff2', crossorigin: '' }))
+  link: [{ rel: 'preload', href: geistLatin, as: 'font', type: 'font/woff2', crossorigin: '' }]
 })
 </script>

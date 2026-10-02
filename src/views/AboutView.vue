@@ -1,99 +1,148 @@
 <template>
-  <div>
-    <section class="container-site grid gap-12 pt-32 pb-16 md:pt-40 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-20">
-      <div>
-        <h1 class="rise text-[clamp(2.4rem,1.5rem+3.6vw,4.25rem)] leading-[1.03] font-[640] tracking-[-0.04em]">
-          I'm {{ site.firstName }}, a full stack <span class="serif">developer.</span>
-        </h1>
-        <p class="rise rise-1 lede mt-6 md:text-xl">
-          4 years building production web apps with Vue.js, Nuxt.js and Java.
-          Based in Panvel, Navi Mumbai.
-        </p>
-      </div>
-      <div v-if="isSet(site.photo)" class="bezel rise rise-2 max-w-sm">
-        <img
-          :src="site.photo"
-          :alt="`Portrait of ${site.name}`"
-          width="800"
-          height="1000"
-          class="aspect-[4/5] w-full rounded-[var(--radius-panel-inner)] object-cover"
-        />
-      </div>
-      <div v-else-if="showPlaceholders" class="ph-block aspect-[4/5] max-w-sm rounded-[1.75rem]">
-        [ADD_PHOTO]<br />Portrait, 4:5, at least 800x1000
-      </div>
-    </section>
+  <div class="pt-20">
+    <!-- About Section -->
+    <section class="section-padding page-section-bg">
+      <div class="container-max">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6">About Me</h1>
+            <p class="text-xl page-description leading-relaxed max-w-3xl mx-auto">
+              Frontend Engineer with 3+ years of experience building and maintaining production-grade web applications in travel and aviation domains
+            </p>
+          </div>
 
-    <!-- Experience -->
-    <section class="section border-t border-line">
-      <div class="container-site">
-        <h2 class="h-section reveal">Experience</h2>
-        <ol class="mt-14 grid gap-14">
-          <li v-for="job in experience" :key="job.company" class="reveal grid gap-6 md:grid-cols-[16rem_1fr] md:gap-12">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p class="font-semibold">{{ job.company }}</p>
-              <p class="mt-1 text-sm text-muted tabular-nums">{{ job.period }}</p>
-              <p class="text-sm text-muted">{{ job.location }}</p>
+              <h2 class="text-2xl font-bold gradient-text mb-6">My Journey</h2>
+              <div class="space-y-4 page-body leading-relaxed">
+                <p>
+                  I've spent the last 3+ years building and maintaining production-grade web applications in the travel and aviation industry.
+                  Currently, I own the Flights module for Thomas Cook's enterprise travel platform, working across multiple teams and mentoring junior developers.
+                </p>
+                <p>
+                  My expertise spans Vue.js development within complex enterprise environments (CMS, CDN-based integrations), API-driven UI development,
+                  and collaborating with backend teams on Java-based services. I'm passionate about modernizing legacy systems and leveraging Generative AI tools
+                  to improve development velocity and code quality.
+                </p>
+                <p>
+                  Beyond traditional development, I enjoy exploring AI/ML applications, as seen in my computer vision projects for helmet detection
+                  and AI-assisted content generation for live cricket scoreboards. I'm always excited to tackle new challenges and contribute to innovative solutions.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 class="text-2xl font-semibold tracking-tight">{{ job.role }}</h3>
-              <p v-if="job.detail" class="mt-1 text-accent">{{ job.detail }}</p>
-              <ul class="mt-5 grid gap-3 text-muted">
-                <li v-for="point in job.points" :key="point" class="flex gap-3">
-                  <PhCheck :size="18" weight="bold" class="mt-1 shrink-0 text-ink" />
-                  <span>{{ point }}</span>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
 
-    <!-- Skills -->
-    <section class="section bg-paper-2">
-      <div class="container-site">
-        <h2 class="h-section reveal">Skills</h2>
-        <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          <div
-            v-for="(group, i) in skills"
-            :key="group.group"
-            class="bezel reveal"
-            :class="i < 2 ? 'lg:col-span-3' : 'lg:col-span-2'"
-          >
-            <div class="bezel-core p-6 sm:p-7">
-              <h3 class="font-semibold">{{ group.group }}</h3>
-              <ul class="mt-4 flex flex-wrap gap-2">
-                <li v-for="item in group.items" :key="item" class="chip">{{ item }}</li>
-              </ul>
+            <div class="card p-8">
+              <h3 class="text-xl font-bold gradient-text mb-6">Quick Facts</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="page-label">📅 Experience</span>
+                  <span class="font-semibold text-primary-600">3+ Years</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="page-label">🏢 Current Role</span>
+                  <span class="font-semibold text-accent-600">Frontend Engineer</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="page-label">🎯 Industry</span>
+                  <span class="font-semibold text-primary-600">Travel & Aviation</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="page-label">🤖 AI Tools</span>
+                  <span class="font-semibold text-accent-600">Copilot, Claude, GPT</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="page-label">📍 Location</span>
+                  <span class="font-semibold text-primary-600">Panvel, India</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="page-label">🎓 Education</span>
+                  <span class="font-semibold text-accent-600">B.E. IT (8.68 CGPA)</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Education -->
-    <section class="section">
-      <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
-        <h2 class="h-section reveal">Education</h2>
-        <ul class="grid gap-8">
-          <li v-for="e in education" :key="e.title" class="reveal flex flex-col gap-1 border-t border-line pt-6 sm:flex-row sm:justify-between sm:gap-6">
-            <div>
-              <h3 class="text-lg font-semibold">{{ e.title }}</h3>
-              <p class="text-muted">{{ e.place }}</p>
+    <!-- Skills Section -->
+    <section class="section-padding experience-card-bg">
+      <div class="container-max">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Technical Skills</h2>
+          <p class="text-lg page-description max-w-2xl mx-auto">
+            Technologies and tools I use to build modern, scalable applications
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div
+            v-for="category in skillCategories"
+            :key="category.title"
+            class="tech-tag-bg rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-bold page-heading-secondary mb-4 flex items-center">
+              <span class="text-2xl mr-3">{{ category.icon }}</span>
+              {{ category.title }}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in category.skills"
+                :key="skill"
+                class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full"
+              >
+                {{ skill }}
+              </span>
             </div>
-            <p class="shrink-0 text-muted tabular-nums">{{ e.year }}, {{ e.note }}</p>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="pb-20 md:pb-28">
-      <div class="container-site">
-        <div class="bezel reveal">
-          <div class="bezel-core flex flex-col gap-8 p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
-            <h2 class="max-w-md text-3xl font-semibold tracking-tight">Have a website project in mind?</h2>
-            <CtaButtons />
+    <!-- Experience Timeline -->
+    <section class="section-padding page-section-bg">
+      <div class="container-max">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Professional Experience</h2>
+          <p class="text-lg page-description max-w-2xl mx-auto">
+            My journey in software development and the roles I've taken
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="space-y-8">
+            <div
+              v-for="experience in experiences"
+              :key="experience.id"
+              class="relative flex items-start space-x-6"
+            >
+              <!-- Timeline line -->
+              <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-primary-200"></div>
+
+              <!-- Timeline dot -->
+              <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                <span class="text-white text-lg">{{ experience.icon }}</span>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-grow experience-card-bg rounded-lg p-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                  <h3 class="text-xl font-bold page-heading-secondary">{{ experience.position }}</h3>
+                  <span class="text-primary-600 font-medium">{{ experience.period }}</span>
+                </div>
+                <p class="page-body-secondary font-medium mb-3">{{ experience.company }}</p>
+                <p class="page-description leading-relaxed">{{ experience.description }}</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span
+                    v-for="tech in experience.technologies"
+                    :key="tech"
+                    class="px-3 py-1 tech-tag-bg page-body-secondary text-sm rounded-full border border-gray-300"
+                  >
+                    {{ tech }}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -102,15 +151,74 @@
 </template>
 
 <script setup lang="ts">
-import { PhCheck } from '@phosphor-icons/vue'
-import CtaButtons from '@/components/CtaButtons.vue'
 import { usePageSeo } from '@/composables/usePageSeo'
-import { site, isSet, showPlaceholders } from '@/config/site'
-import { experience, skills, education } from '@/content/experience'
 
 usePageSeo({
   title: 'About',
-  description: 'Rutik Tarerkar is a Full Stack Developer with 4 years of experience in Vue.js, Nuxt.js and Java, currently working on the Thomas Cook / SOTC travel booking platform.',
+  description: 'Rutik Tarerkar is a Full Stack Developer with close to 4 years of experience in Vue.js, Nuxt.js and Java, currently working on the Thomas Cook / SOTC travel booking platform.',
   path: '/about'
 })
+
+const skillCategories = [
+  {
+    title: 'Core Frameworks',
+    icon: '🟢',
+    skills: ['Vue.js (2 & 3)', 'Nuxt.js (2 & 3)', 'JavaScript (ES6+)', 'HTML5', 'CSS3']
+  },
+  {
+    title: 'State Management',
+    icon: '🧠',
+    skills: ['Pinia', 'Vuex', 'Redux Toolkit']
+  },
+  {
+    title: 'Backend & APIs',
+    icon: '⚙️',
+    skills: ['REST APIs', 'Java Services', 'Axios', 'MySQL', 'Service-oriented Architecture']
+  },
+  {
+    title: 'AI & Development Tools',
+    icon: '🤖',
+    skills: ['GitHub Copilot', 'Claude', 'GPT-5', 'Grok', 'Prompt Engineering']
+  },
+  {
+    title: 'Enterprise & CMS',
+    icon: '🏢',
+    skills: ['OpenCMS', 'CDN Integration', 'Legacy System Modernization', 'GitLab', 'JIRA']
+  },
+  {
+    title: 'AI/ML Projects',
+    icon: '🧪',
+    skills: ['Python', 'OpenCV', 'Computer Vision', 'Machine Learning', 'Helmet Detection']
+  }
+]
+
+const experiences = [
+  {
+    id: 1,
+    position: 'Software Developer (T3)',
+    company: 'Thomas Cook (Client) - Risosu Consulting LLP',
+    period: 'Oct 2023 - Present',
+    description: 'Own frontend development for the Flights domain, supporting critical business flows such as multicity search, date handling, validations, and production bug fixes. Work across multiple cross-functional teams, acting as the primary frontend point of contact for Flights-related changes and releases. Mentor and guide interns, reviewing code and clarifying requirements.',
+    technologies: ['Vue 3', 'JavaScript', 'HTML', 'CSS', 'OpenCMS', 'REST APIs', 'Java', 'MySQL', 'GlassFish', 'GitLab'],
+    icon: '✈️'
+  },
+  {
+    id: 2,
+    position: 'Web Developer',
+    company: 'Swegon BlueBox Pvt. Ltd',
+    period: 'Sep 2022 - Oct 2023',
+    description: 'Developed and optimized responsive web applications using Vue.js (Vue 2 & 3) with Vuex/Pinia, managing complex application state. Built server-side rendered and static applications using Nuxt.js. Integrated RESTful APIs using Axios with CRUD operations and optimized asynchronous data flows.',
+    technologies: ['Vue.js', 'Vue 3', 'Nuxt.js', 'Vuex', 'Pinia', 'JavaScript', 'REST APIs', 'Axios'],
+    icon: '💻'
+  },
+  {
+    id: 3,
+    position: 'Web Developer',
+    company: 'Swegon BlueBox Pvt. Ltd',
+    period: 'Sep 2021 - Sep 2022',
+    description: 'Continued development work with Vue.js frameworks, focusing on component architecture, performance optimization, and modern web development practices. Worked on legacy system modernization initiatives and collaborated with design and backend teams.',
+    technologies: ['Vue.js', 'JavaScript', 'HTML5', 'CSS3', 'REST APIs'],
+    icon: '🚀'
+  }
+]
 </script>
