@@ -118,7 +118,7 @@ export function createFlightWorld(canvas: HTMLCanvasElement, opts: { mobile: boo
   clouds.uniforms.uGlow.value[0].set(-1800, -6500, 12000, 1.0)
   clouds.uniforms.uGlow.value[1].set(-1500, zOf(S_ARR) + 4000, 15000, 1.25)
 
-  const aircraft = buildAircraft()
+  const aircraft = buildAircraft({ hd: !mobile })
   scene.add(aircraft.group)
   const body = aircraft.group.children[0] as THREE.Group
   const route = buildRoute(noise, aircraft.engines)
